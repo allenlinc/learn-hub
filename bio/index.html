@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生物 Biology · 学科学习网站</title>
+  <link rel="stylesheet" href="../assets/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand"><span class="logo">🧬</span> 生物 Biology</div>
+    <div class="links">
+      <a href="../">返回首页</a>
+      <a href="../README.md">项目说明</a>
+    </div>
+  </div>
+
+  <section class="subject-header">
+    <div class="big-emoji">🧬</div>
+    <h1>生物 <span style="color:var(--muted);font-weight:500;font-size:18px;">Biology</span></h1>
+    <div class="sub">细胞 · 遗传 · 生态 · 9 个知识点</div>
+  </section>
+
+  <p class="subject-intro">生物学习以细胞、遗传与生态为主线，本目录整理核心概念与实验现象。</p>
+
+  <div class="search-wrap" style="max-width:520px;margin:18px auto 0;">
+    <span class="icon">🔍</span>
+    <input id="search" type="text" placeholder="搜索本科知识点（如 细胞结构）" autocomplete="off" />
+  </div>
+
+  <div class="chapters">
+    <section class="chapter" data-group>
+      <h2>细胞</h2>
+      <div class="topics">
+        <div class="topic" data-search="细胞结构 真核细胞与原核细胞">
+          <div class="t-title">细胞结构</div>
+          <div class="t-desc">真核细胞与原核细胞</div>
+        </div>
+        <div class="topic" data-search="细胞分裂 有丝分裂与减数分裂">
+          <div class="t-title">细胞分裂</div>
+          <div class="t-desc">有丝分裂与减数分裂</div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter" data-group>
+      <h2>遗传与进化</h2>
+      <div class="topics">
+        <div class="topic" data-search="遗传规律 分离定律与自由组合">
+          <div class="t-title">遗传规律</div>
+          <div class="t-desc">分离定律与自由组合</div>
+        </div>
+        <div class="topic" data-search="dna 与基因 双螺旋、转录与翻译">
+          <div class="t-title">DNA 与基因</div>
+          <div class="t-desc">双螺旋、转录与翻译</div>
+        </div>
+        <div class="topic" data-search="进化 自然选择与物种起源">
+          <div class="t-title">进化</div>
+          <div class="t-desc">自然选择与物种起源</div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter" data-group>
+      <h2>生理</h2>
+      <div class="topics">
+        <div class="topic" data-search="植物与动物生理 光合作用与呼吸">
+          <div class="t-title">植物与动物生理</div>
+          <div class="t-desc">光合作用与呼吸</div>
+        </div>
+        <div class="topic" data-search="人体生理 循环、神经与免疫">
+          <div class="t-title">人体生理</div>
+          <div class="t-desc">循环、神经与免疫</div>
+        </div>
+      </div>
+    </section>
+    <section class="chapter" data-group>
+      <h2>生态</h2>
+      <div class="topics">
+        <div class="topic" data-search="生态系统 风餐链与物质循环">
+          <div class="t-title">生态系统</div>
+          <div class="t-desc">风餐链与物质循环</div>
+        </div>
+        <div class="topic" data-search="生物多样性 保护与持续发展">
+          <div class="t-title">生物多样性</div>
+          <div class="t-desc">保护与持续发展</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="empty" class="empty is-hidden">本科目录中没有匹配的知识点。</div>
+
+  <footer>
+    <a href="../">返回学科目录</a> · 生物 Biology
+  </footer>
+
+  <script src="../assets/app.js"></script>
+</body>
+</html>

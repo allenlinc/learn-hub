@@ -3,117 +3,99 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>学科学习网站</title>
-  <style>
-    :root {
-      --bg: #f7f9fc;
-      --card: #ffffff;
-      --text: #1f2933;
-      --muted: #6b7280;
-      --accent: #4f7cff;
-      --accent-soft: #eef3ff;
-      --border: #e5e9f0;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 48px 16px 24px;
-    }
-    header h1 { margin: 0 0 8px; font-size: 30px; }
-    header p { margin: 0; color: var(--muted); }
-    main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 16px;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-    }
-    a.card {
-      display: block;
-      text-decoration: none;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-    a.card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(79, 124, 255, .12);
-      border-color: var(--accent);
-    }
-    .emoji { font-size: 30px; }
-    .name { font-size: 18px; font-weight: 600; margin-top: 8px; }
-    .desc { font-size: 13px; color: var(--muted); margin-top: 4px; }
-    .folder { font-size: 12px; color: var(--accent); margin-top: 8px; font-family: monospace; }
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      padding: 32px 16px 48px;
-    }
-  </style>
+  <title>学科学习网站 · 目录</title>
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-  <header>
-    <h1>📚 学科学习网站</h1>
-    <p>按学科组织的学习资源导航 — 点击进入对应科目</p>
-  </header>
+  <div class="topbar">
+    <div class="brand"><span class="logo">📖</span> 学科学习网站</div>
+    <div class="links">
+      <a href="README.md">项目说明</a>
+      <a href="https://github.com/allenlinc/learn-hub">GitHub</a>
+    </div>
+  </div>
+
+  <section class="hero">
+    <h1>📖 学科学习网站</h1>
+    <p>按学科组织的学习资源导航目录 — 点击进入对应科目，查看知识点目录。</p>
+    <div class="search-wrap">
+      <span class="icon">🔍</span>
+      <input id="search" type="text" placeholder="搜索学科（如 数学 / math / 物理）" autocomplete="off" />
+    </div>
+  </section>
+
   <main>
-    <a class="card" href="chi/README.md">
-      <div class="emoji">🀄</div><div class="name">语文 Chinese</div>
+    <a class="card" href="chi/" data-search="语文 chinese 阅读理解 · 写作 · 古诗文">
+      <div class="emoji">🀄</div>
+      <div class="name">语文</div>
+      <div class="en">Chinese</div>
       <div class="desc">阅读理解 · 写作 · 古诗文</div>
-      <div class="folder">chi/</div>
+      <div class="count">14 个知识点</div>
     </a>
-    <a class="card" href="eng/README.md">
-      <div class="emoji">🔤</div><div class="name">英语 English</div>
+    <a class="card" href="eng/" data-search="英语 english 词汇 · 语法 · 阅读">
+      <div class="emoji">🔤</div>
+      <div class="name">英语</div>
+      <div class="en">English</div>
       <div class="desc">词汇 · 语法 · 阅读</div>
-      <div class="folder">eng/</div>
+      <div class="count">11 个知识点</div>
     </a>
-    <a class="card" href="math/README.md">
-      <div class="emoji">🔢</div><div class="name">数学 Math</div>
+    <a class="card" href="math/" data-search="数学 math 算术 · 代数 · 几何">
+      <div class="emoji">🔢</div>
+      <div class="name">数学</div>
+      <div class="en">Math</div>
       <div class="desc">算术 · 代数 · 几何</div>
-      <div class="folder">math/</div>
+      <div class="count">12 个知识点</div>
     </a>
-    <a class="card" href="phy/README.md">
-      <div class="emoji">⚙️</div><div class="name">物理 Physics</div>
+    <a class="card" href="phy/" data-search="物理 physics 力学 · 电学 · 光学">
+      <div class="emoji">⚙️</div>
+      <div class="name">物理</div>
+      <div class="en">Physics</div>
       <div class="desc">力学 · 电学 · 光学</div>
-      <div class="folder">phy/</div>
+      <div class="count">12 个知识点</div>
     </a>
-    <a class="card" href="chem/README.md">
-      <div class="emoji">🧪</div><div class="name">化学 Chemistry</div>
+    <a class="card" href="chem/" data-search="化学 chemistry 物质 · 反应 · 实验">
+      <div class="emoji">🧪</div>
+      <div class="name">化学</div>
+      <div class="en">Chemistry</div>
       <div class="desc">物质 · 反应 · 实验</div>
-      <div class="folder">chem/</div>
+      <div class="count">9 个知识点</div>
     </a>
-    <a class="card" href="bio/README.md">
-      <div class="emoji">🧬</div><div class="name">生物 Biology</div>
+    <a class="card" href="bio/" data-search="生物 biology 细胞 · 遗传 · 生态">
+      <div class="emoji">🧬</div>
+      <div class="name">生物</div>
+      <div class="en">Biology</div>
       <div class="desc">细胞 · 遗传 · 生态</div>
-      <div class="folder">bio/</div>
+      <div class="count">9 个知识点</div>
     </a>
-    <a class="card" href="hist/README.md">
-      <div class="emoji">🏛️</div><div class="name">历史 History</div>
+    <a class="card" href="hist/" data-search="历史 history 中国史 · 世界史">
+      <div class="emoji">🏛️</div>
+      <div class="name">历史</div>
+      <div class="en">History</div>
       <div class="desc">中国史 · 世界史</div>
-      <div class="folder">hist/</div>
+      <div class="count">10 个知识点</div>
     </a>
-    <a class="card" href="geo/README.md">
-      <div class="emoji">🌍</div><div class="name">地理 Geography</div>
+    <a class="card" href="geo/" data-search="地理 geography 自然地理 · 人文地理">
+      <div class="emoji">🌍</div>
+      <div class="name">地理</div>
+      <div class="en">Geography</div>
       <div class="desc">自然地理 · 人文地理</div>
-      <div class="folder">geo/</div>
+      <div class="count">8 个知识点</div>
     </a>
-    <a class="card" href="pol/README.md">
-      <div class="emoji">⚖️</div><div class="name">政治 Politics</div>
+    <a class="card" href="pol/" data-search="政治 politics 道德与法治 · 国情">
+      <div class="emoji">⚖️</div>
+      <div class="name">政治</div>
+      <div class="en">Politics</div>
       <div class="desc">道德与法治 · 国情</div>
-      <div class="folder">pol/</div>
+      <div class="count">8 个知识点</div>
     </a>
   </main>
-  <footer>学科学习网站 · 持续建设中</footer>
+
+  <div id="empty" class="empty is-hidden">没有找到匹配的学科，试试其他关键词。</div>
+
+  <footer>
+    学科学习网站 · 9 个学科 · 93 个知识点 · 持续建设中
+  </footer>
+
+  <script src="assets/app.js"></script>
 </body>
 </html>
