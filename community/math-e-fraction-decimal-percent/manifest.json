@@ -1,0 +1,58 @@
+{
+  "id": "math-e-fraction-decimal-percent",
+  "course_id": "math-e-fraction-decimal-percent",
+  "node_id": "math-e-fraction-decimal-percent",
+  "name": "分数、小数、百分数互化",
+  "name_en": "Percentages / Fractions / Decimals",
+  "subject": "math",
+  "grade": "6",
+  "stage": "elementary",
+  "domain": "number-algebra",
+  "lesson_type": "new-concept",
+  "status": "community",
+  "author": "TeachAny",
+  "version": "1.0.0",
+  "teachany_version": "7.18.0",
+  "template_version": "2.0",
+  "curriculum": "义务教育数学课程标准（2022年版）",
+  "description": "小学六年级数学：理解分数、小数、百分数的意义，掌握三者互化方法，能在情境中比较大小，感悟计数单位统一时运算的一致性。",
+  "tags": [
+    "分数小数百分数互化",
+    "数与代数",
+    "六年级数学"
+  ],
+  "prerequisites": [
+    "math-e-fractions-meaning",
+    "math-e-decimals-intro"
+  ],
+  "leads_to": [
+    "math-e-percentage-statistics"
+  ],
+  "learning_objectives": [
+    "能把分数化成小数（分子÷分母；分母为十、百、千的可直接改写）",
+    "能进行小数与百分数的互化（小数点移两位，对应加/去百分号）",
+    "能在具体情境中比较三者大小，体会计数单位统一时运算的一致性"
+  ],
+  "assets": {
+    "hero": "assets/hero-infographic.svg",
+    "tts_manifest": "tts/manifest.json",
+    "videos": ["assets/intro.mp4"],
+    "images": [
+      "assets/hero-infographic.svg"
+    ]
+  },
+  "has_tts": true,
+  "has_video": true,
+  "has_images": true,
+  "has_hero": true,
+  "has_canvas": false,
+  "has_knowledge_graph": true,
+  "free_mode": false,
+  "feedback": {
+    "require_password": true,
+    "password_sha256": "",
+    "password_hint": ""
+  },
+  "created_at": "2026-07-22",
+  "updated_at": "2026-07-22"
+}

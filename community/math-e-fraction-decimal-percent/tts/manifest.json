@@ -1,0 +1,10 @@
+[
+  {"section": "hero", "src": "tts/01-cover.mp3", "title": "封面"},
+  {"section": "problem-anchor", "src": "tts/02-anchor.mp3", "title": "问题锚点"},
+  {"section": "objectives", "src": "tts/03-objectives.mp3", "title": "学习目标"},
+  {"section": "concept-fd", "src": "tts/04-concept-fd.mp3", "title": "分数与小数互化"},
+  {"section": "concept-dp", "src": "tts/05-concept-dp.mp3", "title": "小数与百分数互化"},
+  {"section": "concept-fp", "src": "tts/06-concept-fp.mp3", "title": "分数与百分数互化"},
+  {"section": "interactive", "src": "tts/07-interactive.mp3", "title": "动手互化"},
+  {"section": "summary", "src": "tts/08-summary.mp3", "title": "总结"}
+]

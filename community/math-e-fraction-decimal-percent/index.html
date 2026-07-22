@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>分数、小数、百分数互化</title>
+<meta name="description" content="小学六年级数学：理解分数、小数、百分数的意义，掌握三者互化方法，能在情境中比较大小，感悟计数单位统一时运算的一致性。">
+
+<!-- TeachAny routing meta -->
+<meta name="course-id" content="math-e-fraction-decimal-percent">
+<meta name="course-title" content="分数、小数、百分数互化">
+<meta name="course-subject" content="math">
+<meta name="course-grade" content="小学六年级">
+<meta name="course-prereqs" content="math-e-fractions-meaning,math-e-decimals-intro">
+<meta name="course-next" content="math-e-percentage-statistics">
+<meta name="course-version" content="1.0.0">
+<meta name="teachany-version" content="7.18.0">
+<meta name="teachany-node" content="math-e-fraction-decimal-percent">
+<meta name="teachany-subject" content="math">
+<meta name="teachany-grade" content="6">
+<meta name="teachany-stage" content="elementary">
+<meta name="teachany-domain" content="number-algebra">
+<meta name="teachany-prerequisites" content="分数的意义和性质,小数的意义">
+<meta name="teachany-lesson-type" content="new-concept">
+<meta name="teachany-free-mode" content="false">
+<meta name="teachany-template-version" content="2.0">
+
+<!-- 标准五件套 + 音频播放器（CDN 绝对路径，便于本地预览与发布后加载） -->
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/ai-tutor.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tutor-card.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tts-narrator.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-section-hints.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-knowledge-graph.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-audio-player.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-floating-dock.css">
+
+<style>
+/* ======================================================
+   TeachAny v2 Design System — 小学(elementary) 暖色覆盖
+   ====================================================== */
+:root {
+  --bg: #fffbf0;
+  --bg-subtle: #fff6e6;
+  --panel: #ffffff;
+  --card: #ffffff;
+  --card-elevated: #fffdf7;
+  --line: #ffe0c2;
+  --line-subtle: rgba(255, 107, 107, 0.12);
+  --text: #2b2b2b;
+  --text-secondary: #5a5249;
+  --muted: #8a7f74;
+  --brand: #ff6b6b;
+  --brand-soft: rgba(255, 107, 107, 0.12);
+  --brand-2: #4ecdc4;
+  --brand-2-soft: rgba(78, 205, 196, 0.14);
+  --accent: #ffd166;
+  --accent-soft: rgba(255, 209, 102, 0.18);
+  --ok: #2ecc71;
+  --warn: #f4a261;
+  --danger: #ef4444;
+  --safe-top: env(safe-area-inset-top);
+  --safe-bottom: env(safe-area-inset-bottom);
+  --page-padding: 24px;
+  --card-radius: 20px;
+  --card-radius-sm: 14px;
+  --slide-height: 100vh;
+  --slide-height-fallback: 100dvh;
+  --toolbar-height: 56px;
+  --sidenav-width: 48px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+body.teachany-elementary {
+  padding-top: var(--safe-top);
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Source Han Sans SC", system-ui, sans-serif;
+  line-height: 1.75;
+  font-size: 16px;
+}
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, a, input, select, textarea { min-height: 44px; }
+img, video, canvas, svg { max-width: 100%; height: auto; }
+h1, h2, h3, h4 { margin: 0; }
+
+.slide-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: var(--slide-height-fallback, var(--slide-height));
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+body:not(.play-mode) .slide-container { scroll-snap-type: y proximity; }
+body.play-mode .slide-container { scroll-snap-type: y mandatory; overflow: hidden; }
+
+.slide-page {
+  min-height: var(--slide-height-fallback, var(--slide-height));
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--page-padding);
+  padding-bottom: calc(var(--page-padding) + var(--toolbar-height));
+  position: relative;
+  overflow: hidden;
+}
+.slide-page .slide-inner { max-width: 880px; width: 100%; position: relative; z-index: 2; margin: 0 auto; }
+.slide-page .slide-inner > * { width: 100%; box-sizing: border-box; }
+.card .card { padding: 18px; box-shadow: none; border: 1px solid var(--line-subtle); }
+
+body.teachany-elementary .slide-page[data-page-type="cover"] {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255,107,107,0.14), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(78,205,196,0.14), transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255,209,102,0.10), transparent 60%);
+  text-align: center;
+}
+body.teachany-elementary .slide-page[data-page-type="cover"] h1 {
+  font-size: clamp(30px, 6.5vw, 52px);
+  line-height: 1.18;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa94d 50%, #4ecdc4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+body.teachany-elementary .slide-page[data-page-type="objectives"] {
+  background: radial-gradient(circle at 0% 100%, rgba(46,204,113,0.10), transparent 40%), radial-gradient(circle at 100% 0%, rgba(255,107,107,0.08), transparent 40%);
+}
+body.teachany-elementary .slide-page[data-page-type="concept"] {
+  background: radial-gradient(circle at 30% 20%, rgba(255,107,107,0.08), transparent 35%), radial-gradient(circle at 70% 80%, rgba(78,205,196,0.08), transparent 35%);
+}
+body.teachany-elementary .slide-page[data-page-type="interactive"] {
+  background: radial-gradient(circle at 50% 0%, rgba(46,204,113,0.10), transparent 40%), radial-gradient(circle at 80% 100%, rgba(255,107,107,0.06), transparent 35%);
+}
+body.teachany-elementary .slide-page[data-page-type="quiz"] {
+  background: radial-gradient(circle at 20% 80%, rgba(244,162,97,0.10), transparent 35%), radial-gradient(circle at 80% 20%, rgba(78,205,196,0.08), transparent 35%);
+}
+body.teachany-elementary .slide-page[data-page-type="summary"] {
+  background: radial-gradient(circle at 50% 50%, rgba(255,107,107,0.08), transparent 45%), radial-gradient(circle at 20% 20%, rgba(78,205,196,0.06), transparent 30%);
+}
+
+.teachany-brand-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 10px 20px;
+  background: rgba(43,43,43,0.92); backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease;
+}
+body.play-mode .teachany-brand-bar { transform: translateY(-100%); }
+.brand-logo { display: flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; font-weight: 800; }
+.brand-mark { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #ff6b6b, #4ecdc4); color: #fff; font-weight: 900; font-size: 14px; }
+.brand-right { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+.brand-link { color: #cfcfcf; transition: color 0.2s; }
+.brand-link:hover { color: #fff; text-decoration: none; }
+.brand-version { color: #e2e2e2; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: rgba(255,255,255,.10); padding: 4px 10px; border-radius: 999px; font-size: 12px; }
+
+.card {
+  background: linear-gradient(160deg, #ffffff, #fff6e6);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: 0 6px 28px rgba(255,150,90,0.10), 0 1px 0 rgba(255,255,255,0.6) inset;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(255,150,90,0.16); }
+.card-accent { border-top: 3px solid; border-image: linear-gradient(90deg, #ff6b6b, #4ecdc4) 1; }
+.card-glow { box-shadow: 0 6px 28px rgba(78,205,196,0.16), 0 0 40px rgba(78,205,196,0.08); }
+
+.section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.section-header h2 { font-size: clamp(20px, 4vw, 26px); font-weight: 700; line-height: 1.3; }
+
+.phase-tag {
+  display: inline-flex; align-items: center; gap: 6px; color: #ff6b6b;
+  background: rgba(255,107,107,0.12); border: 1px solid rgba(255,107,107,0.25);
+  border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.phase-tag[data-variant="success"] { color: #1f9e57; background: rgba(46,204,113,0.12); border-color: rgba(46,204,113,0.25); }
+.phase-tag[data-variant="purple"] { color: #2bb3a8; background: rgba(78,205,196,0.14); border-color: rgba(78,205,196,0.28); }
+.phase-tag[data-variant="warn"] { color: #d98324; background: rgba(244,162,97,0.12); border-color: rgba(244,162,97,0.25); }
+
+.grid { display: grid; grid-template-columns: 1fr; gap: 12px; width: 100%; }
+.grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid > * { min-width: 0; }
+.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.flex-row { display: flex; gap: 12px; margin-top: 14px; align-items: center; flex-wrap: wrap; }
+.flex-row .choice { flex: 1; min-width: 120px; text-align: center; }
+
+.objectives { display: grid; grid-template-columns: 1fr; gap: 10px; list-style: none; padding: 0; }
+.objectives li {
+  display: flex; align-items: flex-start; gap: 10px; padding: 12px 16px;
+  border-radius: var(--card-radius-sm); background: rgba(255,107,107,0.06); border: 1px solid var(--line-subtle);
+  transition: background 0.2s;
+}
+.objectives li:hover { background: rgba(255,107,107,0.12); }
+.objectives li::before { content: "✦"; color: #ff6b6b; font-size: 14px; margin-top: 2px; flex-shrink: 0; }
+
+.choice {
+  width: 100%; text-align: left; border: 1px solid rgba(255,107,107,0.22);
+  border-radius: var(--card-radius-sm); background: rgba(255,107,107,0.05); color: var(--text);
+  padding: 16px 20px; cursor: pointer; font-size: 15px; line-height: 1.5; transition: all 0.2s ease;
+}
+.choice:hover { background: rgba(255,107,107,0.12); border-color: rgba(255,107,107,0.4); transform: translateX(4px); }
+.choice.selected { border-color: #ff6b6b; background: rgba(255,107,107,0.16); box-shadow: 0 0 0 3px rgba(255,107,107,0.12); }
+.choice.correct { border-color: var(--ok); background: rgba(46,204,113,0.14); }
+.choice.wrong { border-color: var(--danger); background: rgba(239,68,68,0.10); }
+
+input, textarea {
+  width: 100%; border-radius: 12px; border: 1px solid var(--line); background: #fffdf7; color: var(--text);
+  padding: 14px 16px; font-size: 15px; transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, textarea:focus { outline: none; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.14); }
+
+.result { padding: 16px 20px; border-radius: var(--card-radius-sm); background: rgba(46,204,113,0.10); border: 1px solid rgba(46,204,113,0.22); font-size: 15px; line-height: 1.6; }
+.result.warn { background: rgba(244,162,97,0.10); border-color: rgba(244,162,97,0.25); }
+.result.error { background: rgba(239,68,68,0.10); border-color: rgba(239,68,68,0.22); }
+
+.ta-standard-figure { margin: 20px auto; max-width: 860px; }
+.ta-standard-figure img { display: block; width: 100%; border-radius: 16px; border: 1px solid var(--line-subtle); }
+.ta-standard-figure figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; text-align: center; }
+
+.slide-progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); z-index: 200; transition: width 0.3s ease; border-radius: 0 2px 2px 0; }
+
+.slide-toolbar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px;
+  padding-bottom: calc(10px + var(--safe-bottom));
+  background: rgba(43,43,43,0.92); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(100%); transition: transform 0.3s ease;
+}
+body.play-mode .slide-toolbar, body.toolbar-visible .slide-toolbar { transform: translateY(0); }
+.toolbar-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: none; border-radius: 10px; background: rgba(255,255,255,0.10); color: #fff; cursor: pointer; transition: all 0.2s; font-size: 18px; }
+.toolbar-btn:hover { background: rgba(255,255,255,0.18); }
+.toolbar-btn.active { background: rgba(255,107,107,0.25); color: #ffd0d0; }
+.toolbar-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.toolbar-page-info { color: #ddd; font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; min-width: 60px; text-align: center; }
+.toolbar-progress { flex: 1; max-width: 200px; height: 4px; background: rgba(255,255,255,0.12); border-radius: 2px; overflow: hidden; cursor: pointer; }
+.toolbar-progress-fill { height: 100%; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); border-radius: 2px; transition: width 0.3s ease; }
+
+.slide-sidenav {
+  position: fixed; right: 12px; top: 50%; transform: translateY(-50%); z-index: 90;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 3px; opacity: 0; transition: opacity 0.3s ease;
+  max-height: 70vh; overflow-y: auto; scrollbar-width: none; padding: 8px 4px; border-radius: 12px;
+  background: rgba(43,43,43,0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08);
+}
+.slide-sidenav::-webkit-scrollbar { display: none; }
+body.play-mode .slide-sidenav, body.toolbar-visible .slide-sidenav { opacity: 1; }
+.sidenav-dot { width: 28px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.18); border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; padding: 0; flex-shrink: 0; }
+.sidenav-dot:hover { background: rgba(255,107,107,0.6); width: 36px; }
+.sidenav-dot.active { background: #ff6b6b; width: 36px; height: 5px; box-shadow: 0 0 10px rgba(255,107,107,0.6); }
+.sidenav-dot[data-tooltip]::before {
+  content: attr(data-tooltip); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%);
+  padding: 5px 10px; background: rgba(43,43,43,0.96); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px;
+  color: #fff; font-size: 11px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+}
+.sidenav-dot:hover[data-tooltip]::before { opacity: 1; }
+.sidenav-counter { font-size: 10px; color: rgba(255,255,255,0.6); text-align: center; padding: 4px 0 2px; font-variant-numeric: tabular-nums; letter-spacing: 0.5px; width: 100%; }
+
+.play-mode-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 90; width: 48px; height: 48px; border-radius: 50%; border: none;
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(255,107,107,0.35); transition: all 0.3s ease;
+}
+.play-mode-fab:hover { transform: scale(1.1); }
+.play-mode-fab svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.step-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
+.step-item { display: flex; gap: 10px; padding: 12px 14px; border-radius: 12px; background: rgba(78,205,196,0.08); border: 1px solid var(--line-subtle); }
+.step-item .num { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: #4ecdc4; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 14px; }
+.kp-tag { display: inline-block; font-size: 12px; font-family: ui-monospace, monospace; color: #2bb3a8; background: rgba(78,205,196,0.14); border: 1px solid rgba(78,205,196,0.3); border-radius: 6px; padding: 2px 8px; margin-left: 6px; }
+
+.canvas-wrap { overflow: auto; background: #fffdf7; border: 1px solid var(--line-subtle); border-radius: 16px; padding: 16px; }
+.formula { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: rgba(255,209,102,0.16); border: 1px solid rgba(255,209,102,0.4); border-radius: 10px; padding: 10px 14px; display: inline-block; margin: 6px 0; color: #7a5a00; }
+.hint-box { margin-top: 12px; padding: 12px 16px; border-radius: 12px; background: rgba(244,162,97,0.10); border: 1px dashed rgba(244,162,97,0.5); font-size: 14px; }
+
+/* 互化转换器 */
+.conv-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 14px 0; }
+.conv-cell { background: #fffdf7; border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; }
+.conv-cell .lbl { font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+.conv-cell input { text-align: center; font-size: 18px; font-weight: 700; }
+.conv-cell .out { font-size: 20px; font-weight: 800; color: #ff6b6b; min-height: 28px; }
+.arrow-note { text-align:center; color: var(--muted); font-size: 13px; margin: 6px 0; }
+#percentGrid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px; width: 100%; max-width: 320px; margin: 12px auto; }
+#percentGrid .pc { aspect-ratio: 1; border-radius: 3px; background: #ffe9d6; }
+#percentGrid .pc.on { background: linear-gradient(135deg,#ff6b6b,#ffa94d); }
+#numline { width: 100%; max-width: 520px; margin: 10px auto; display: block; }
+
+@media (max-width: 768px) {
+  :root { --page-padding: 16px; --card-radius: 16px; }
+  .slide-page { padding: 16px 14px; padding-bottom: calc(16px + var(--toolbar-height)); }
+  .grid, .grid-2, .grid-3, .objectives, .grid-2col, .conv-grid { grid-template-columns: 1fr !important; }
+  .flex-row { flex-direction: column; }
+  .flex-row .choice { min-width: 100%; }
+  .card { padding: 18px; }
+  .slide-sidenav { right: 6px; }
+}
+.text-gradient { background: linear-gradient(135deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.animate-in { animation: fadeUp 0.5s ease-out both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body class="teachany-elementary">
+
+<div class="slide-progress-bar" id="slide-progress-bar" style="width: 0%"></div>
+
+<div class="teachany-brand-bar">
+  <a class="brand-logo" href="https://weponusa.github.io/teachany/" aria-label="TeachAny Gallery">
+    <span class="brand-mark">T</span><span class="brand-name">TeachAny</span>
+  </a>
+  <div class="brand-right">
+    <a class="brand-link" href="https://weponusa.github.io/teachany/">Gallery</a>
+    <span class="brand-version">v<span id="course-version-display">1.0.0</span> · skill v<span id="skill-version-display">7.18.0</span></span>
+  </div>
+</div>
+
+<div class="slide-container" id="slide-container">
+
+  <!-- Page 0: Cover -->
+  <section class="slide-page" data-page-type="cover" data-page-index="0" data-tts="hero" data-tsh="封面 - 同一个数为什么有三种写法">
+    <div class="slide-inner">
+      <h1>分数、小数、百分数互化</h1>
+      <p class="subtitle">班级投票：喜欢公园的占 3/4，喜欢博物馆的占 0.7，哪个更多？今天学会把三种"语言"变统一。</p>
+      <p style="color:var(--muted);font-size:14px;margin-top:10px">百分数，表示一个数是另一个数的百分之几的数，叫做百分数；分数、小数与百分数，只是同一个数的不同写法。</p>
+      <figure class="ta-standard-figure" style="margin-top:28px">
+        <img src="./assets/hero-infographic.svg" alt="分数、小数、百分数三种写法的等价关系与互化箭头知识结构图">
+        <figcaption>同一个数，三种写法：分数 3/4 ＝ 小数 0.75 ＝ 百分数 75%</figcaption>
+      </figure>
+      <video controls preload="metadata" playsinline style="width:100%;max-width:480px;margin:22px auto 0;display:block;border-radius:14px;box-shadow:0 6px 20px rgba(255,107,107,0.18)">
+        <source src="./assets/intro.mp4" type="video/mp4">
+        你的浏览器不支持视频播放，可下载 assets/intro.mp4 查看。
+      </video>
+    </div>
+  </section>
+
+  <!-- Page 1: Problem Anchor -->
+  <section class="slide-page" data-page-type="interactive" data-page-index="1" data-tts="problem-anchor" data-tsh="问题锚点 - 先确定你想解决的问题">
+    <div class="slide-inner">
+      <div class="card card-accent">
+        <div class="section-header">
+          <span class="phase-tag">Problem Anchor</span>
+          <h2>今天想解决什么问题？</h2>
+        </div>
+        <p style="color:var(--muted);margin:0 0 16px">选一个你关心的问题，后面的内容会围绕它展开。</p>
+        <div class="hint-box" style="margin-top:4px;background:var(--brand-soft);border-color:var(--brand)">💡 <b>为什么学？</b>我们已经会用分数、小数表示数量（已经知道），可一比较大小就糊涂——这就是今天要解决的问题（但…问题）；学会互化，它们就能"说同一种语言"（所以学）。</div>
+        <div class="grid" id="problem-anchor-choices">
+          <button class="choice" data-anchor-choice="投票比较：3/4 和 0.7 谁更多？">投票比较：3/4 和 0.7 谁更多？</button>
+          <button class="choice" data-anchor-choice="打折：八折和降价20%一样便宜吗？">打折：八折和降价20%一样便宜吗？</button>
+          <button class="choice" data-anchor-choice="命中率：投20中15，怎么算百分之几？">命中率：投20中15，怎么算百分之几？</button>
+          <button class="choice" data-anchor-choice="我只是想搞懂它们怎么互化">我只是想搞懂它们怎么互化</button>
+        </div>
+        <label style="display:block;margin-top:20px;color:var(--muted);font-size:14px">或者，写下你自己的问题
+          <input id="learner-question-input" placeholder="把你卡住的问题写在这里" style="margin-top:8px">
+        </label>
+        <p id="anchor-feedback" class="result warn" style="margin-top:16px">选择或输入后，本课会围绕你的问题展开。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 2: Learning Objectives -->
+  <section class="slide-page" data-page-type="objectives" data-page-index="2" data-tts="objectives" data-tsh="学习目标 - 明确这节课结束时能做到什么">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="success">Objectives</span>
+          <h2>学习目标</h2>
+        </div>
+        <ul class="objectives">
+          <li>能把<strong>分数化成小数</strong>（分子÷分母），也会把小数化成分数并约分。</li>
+          <li>能进行<strong>小数与百分数的互化</strong>（小数点移两位），以及分数与百分数的互化。</li>
+          <li>能在具体情境中<strong>比较</strong>分数、小数、百分数的大小，体会"相同计数单位下运算一致"。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 3: Pretest -->
+  <section class="slide-page" data-page-type="quiz" data-page-index="3" data-tts="pretest" data-tsh="前测 - 先看看你已经会多少">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="warn">Pretest</span>
+          <h2>前测：先试试两题</h2>
+        </div>
+        <div class="quiz-block" data-correct="A">
+          <p><strong>1.</strong> 0.25 等于下面哪个分数？</p>
+          <button class="choice" data-opt="A">A. 1/4</button>
+          <button class="choice" data-opt="B">B. 1/2</button>
+          <button class="choice" data-opt="C">C. 1/5</button>
+          <button class="choice" data-opt="D">D. 1/25</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="B">
+          <p><strong>2.</strong> 把 3/5 化成小数，结果是？</p>
+          <button class="choice" data-opt="A">A. 0.35</button>
+          <button class="choice" data-opt="B">B. 0.6</button>
+          <button class="choice" data-opt="C">C. 0.5</button>
+          <button class="choice" data-opt="D">D. 0.3</button>
+          <p class="result" hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 4: Concept 分数↔小数 -->
+  <section class="slide-page" data-page-type="concept" data-page-index="4" data-tts="concept-fd" data-tsh="概念 - 分数与小数怎么互化">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag">Concept 1</span>
+          <h2>分数 ⇄ 小数</h2>
+        </div>
+        <p>分数和小数说的是同一类"部分与整体"，差别只在写法。</p>
+        <div class="grid grid-2">
+          <div class="inner-card" style="border:1px solid var(--line-subtle);border-radius:12px;padding:14px">
+            <strong>分数 → 小数</strong>
+            <ul style="margin:8px 0 0;padding-left:18px">
+              <li>分母是 10、100、1000：直接写，看分母几个 0。如 7/10 = 0.7，13/100 = 0.13。</li>
+              <li>一般分数：<span class="formula">分子 ÷ 分母</span>。1/4 = 1÷4 = 0.25；3/8 = 0.375。</li>
+            </ul>
+          </div>
+          <div class="inner-card" style="border:1px solid var(--line-subtle);border-radius:12px;padding:14px">
+            <strong>小数 → 分数</strong>
+            <ul style="margin:8px 0 0;padding-left:18px">
+              <li>看有几位小数，1 后写几个 0 作分母，去小数点作分子，再约分。</li>
+              <li>0.6 = 6/10 = 3/5；0.125 = 125/1000 = 1/8。</li>
+            </ul>
+          </div>
+        </div>
+        <div class="hint-box">⚠️ 易错 <span class="kp-tag">err-2</span>：分数化小数别搞反——是<b>分子÷分母</b>（1÷4），不是 4÷1，也不是 0.14。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 5: Concept 小数↔百分数 -->
+  <section class="slide-page" data-page-type="concept" data-page-index="5" data-tts="concept-dp" data-tsh="概念 - 小数与百分数怎么互化">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag">Concept 2</span>
+          <h2>小数 ⇄ 百分数</h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="inner-card" style="border:1px solid var(--line-subtle);border-radius:12px;padding:14px">
+            <strong>小数 → 百分数</strong>
+            <p style="margin:8px 0">小数点向<strong>右</strong>移两位，加 %。</p>
+            <p class="formula">0.25 → 25%　|　1.2 → 120%</p>
+          </div>
+          <div class="inner-card" style="border:1px solid var(--line-subtle);border-radius:12px;padding:14px">
+            <strong>百分数 → 小数</strong>
+            <p style="margin:8px 0">去 %，小数点向<strong>左</strong>移两位。</p>
+            <p class="formula">75% → 0.75　|　120% → 1.20</p>
+          </div>
+        </div>
+        <div class="hint-box">⚠️ 易错 <span class="kp-tag">err-1</span>：小数化百分数要<strong>右</strong>移两位（0.25→25%），不是左移成 2.5%。<br>⚠️ 易错 <span class="kp-tag">err-3</span>：120% 去 % 左移两位是 1.20，不是 0.012，也不是 120。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 6: Concept 分数↔百分数 -->
+  <section class="slide-page" data-page-type="concept" data-page-index="6" data-tts="concept-fp" data-tsh="概念 - 分数与百分数怎么互化">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag">Concept 3</span>
+          <h2>分数 ⇄ 百分数</h2>
+        </div>
+        <p>最稳的办法：先化小数，再化百分数。</p>
+        <div class="step-grid">
+          <div class="step-item"><span class="num">1</span><div>分数 → 小数：分子÷分母。如 1/4 = 0.25。</div></div>
+          <div class="step-item"><span class="num">2</span><div>小数 → 百分数：右移两位加 %。0.25 → 25%。所以 <b>1/4 = 25%</b>。</div></div>
+          <div class="step-item"><span class="num">3</span><div>反过来：百分数 → 分数，先化小数再化分数并约分。75% = 0.75 = 75/100 = 3/4。</div></div>
+        </div>
+        <div class="hint-box">💡 约分不成整数的百分数（如 1/3 ≈ 33.3%）用"约等于"，课标只要求会化、不必把循环小数化成分数。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 7: Worked Example -->
+  <section class="slide-page" data-page-type="concept" data-page-index="7" data-tts="worked" data-tsh="习题讲解 - 完整解题步骤与易错提示">
+    <div class="slide-inner">
+      <div class="card card-accent">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="purple">Worked Example</span>
+          <h2>例题：比较并排序</h2>
+        </div>
+        <p>把 <b>3/4、0.72、75%</b> 化成同一种形式，按从大到小排列。<span class="kp-tag">ex-1</span></p>
+        <div class="step-grid">
+          <div class="step-item"><span class="num">1</span><div>统一化成小数最方便：3/4 = 3÷4 = <b>0.75</b>；75% = 75÷100 = <b>0.75</b>；0.72 不变。</div></div>
+          <div class="step-item"><span class="num">2</span><div>比较：0.75 = 0.75 &gt; 0.72。</div></div>
+          <div class="step-item"><span class="num">3</span><div>结论：<b>3/4 = 75% &gt; 0.72</b>。两种写法其实相等！</div></div>
+        </div>
+        <div class="hint-box">🎯 关键：比较前先<strong>统一计数单位</strong>（都化小数）。这正是整数、分数、小数加减运算都要"相同计数单位"的一致思想。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 8: Interactive 转换器 -->
+  <section class="slide-page" data-page-type="interactive" data-page-index="8" data-tts="interactive" data-tsh="动手互化 - 输入一个数看另两种写法">
+    <div class="slide-inner">
+      <div class="card card-glow">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="success">Try it</span>
+          <h2>互化转换器</h2>
+        </div>
+        <p style="color:var(--muted);margin:0 0 8px">改任意一个框，另外两个会跟着变；下方正方形会按百分数涂色，数轴会标出位置。</p>
+        <div class="conv-grid">
+          <div class="conv-cell">
+            <div class="lbl">分数（分子/分母）</div>
+            <input id="cvNum" type="number" value="3" min="0" style="width:64px;display:inline-block"> /
+            <input id="cvDen" type="number" value="4" min="1" style="width:64px;display:inline-block">
+            <div class="out" id="cvFracOut">3/4</div>
+          </div>
+          <div class="conv-cell">
+            <div class="lbl">小数</div>
+            <input id="cvDec" type="number" step="0.0001" value="0.75" style="font-size:18px">
+            <div class="out" id="cvDecOut">0.75</div>
+          </div>
+          <div class="conv-cell">
+            <div class="lbl">百分数</div>
+            <input id="cvPct" type="number" step="0.1" value="75" style="font-size:18px">
+            <div class="out" id="cvPctOut">75%</div>
+          </div>
+        </div>
+        <div id="percentGrid"></div>
+        <canvas id="nlCanvas" width="520" height="84" aria-label="0到1的数轴，点击标出当前数值位置" style="width:100%;max-width:520px;height:auto;margin-top:6px;border-radius:10px;background:#fffdf7;border:1px solid var(--line)"></canvas>
+        <p style="color:var(--muted);font-size:13px;margin:4px 0 0">点一下数轴，标出你想看的数（0～1）。</p>
+        <p id="cvMsg" class="result" style="margin-top:10px">试试把分数改成 1/2、1/8，看看小数和百分数怎么变。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 9: Interactive GeoGebra -->
+  <section class="slide-page" data-page-type="interactive" data-page-index="9" data-tts="explore" data-tsh="探究 - 用 GeoGebra 在数轴上看分数位置">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="purple">Explore</span>
+          <h2>数轴上的分数（GeoGebra）</h2>
+        </div>
+        <p style="color:var(--muted);margin:0 0 10px">拖动滑块 a、b，观察分数 a/b 在 0–1 数轴上的位置，以及它的小数、百分数等价写法。</p>
+        <div id="ggb-applet" style="width:100%;max-width:840px;margin:0 auto"></div>
+        <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+        <script>
+        window.addEventListener('load', function () {
+          if (window.GGBApplet) {
+            new GGBApplet({
+              appName: "graphing", width: 800, height: 320,
+              showMenuBar: false, showAlgebraInput: true, showToolBar: false,
+              showResetIcon: true, language: "zh-CN",
+              appletOnLoad: function (api) {
+                api.evalCommand("a = 3"); api.evalCommand("b = 4");
+                api.evalCommand("SetSliderRange(a, 0, 10, 1)");
+                api.evalCommand("SetSliderRange(b, 1, 10, 1)");
+                api.evalCommand("val = a / b");
+                api.evalCommand("A = (val, 0)");
+                api.evalCommand("SetPointSize(A, 6)");
+                api.evalCommand("SetColor(A, 255, 107, 107)");
+                api.evalCommand("text1 = \"分数 \" + a + \"/\" + b + \" = \" + val + \" = \" + (val*100) + \"%\"");
+                api.evalCommand("SetColor(text1, 43, 43, 43)");
+              }
+            }, '5.0').inject('ggb-applet');
+          }
+        });
+        </script>
+        <p style="font-size:12px;color:#8a7f74;margin-top:8px">💡 真实外部工具：GeoGebra 数轴探究（需联网加载）。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 10: Quiz 概念测试 -->
+  <section class="slide-page" data-page-type="quiz" data-page-index="10" data-tts="quiz-concept" data-tsh="概念测试 - 即时反馈巩固">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag">Check</span>
+          <h2>概念测试</h2>
+        </div>
+        <div class="quiz-block" data-correct="A">
+          <p><strong>1.</strong> 0.04 等于哪个百分数？</p>
+          <button class="choice" data-opt="A">A. 4%</button>
+          <button class="choice" data-opt="B">B. 40%</button>
+          <button class="choice" data-opt="C">C. 0.4%</button>
+          <button class="choice" data-opt="D">D. 4</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="A">
+          <p><strong>2.</strong> 把 5/8 化成小数？</p>
+          <button class="choice" data-opt="A">A. 0.625</button>
+          <button class="choice" data-opt="B">B. 0.58</button>
+          <button class="choice" data-opt="C">C. 0.85</button>
+          <button class="choice" data-opt="D">D. 0.6</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="A">
+          <p><strong>3.</strong> 60% 化成分数（最简）？</p>
+          <button class="choice" data-opt="A">A. 3/5</button>
+          <button class="choice" data-opt="B">B. 60/1</button>
+          <button class="choice" data-opt="C">C. 6/100</button>
+          <button class="choice" data-opt="D">D. 3/50</button>
+          <p class="result" hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 11: Quiz 后测 -->
+  <section class="slide-page" data-page-type="quiz" data-page-index="11" data-tts="quiz-post" data-tsh="后测 - 含情境迁移题">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="warn">Posttest</span>
+          <h2>后测：情境迁移</h2>
+        </div>
+        <div class="quiz-block" data-correct="B">
+          <p><strong>1.</strong> 运动会小明投篮 20 次进 15 次，命中率是？</p>
+          <button class="choice" data-opt="A">A. 15%</button>
+          <button class="choice" data-opt="B">B. 75%</button>
+          <button class="choice" data-opt="C">C. 0.75%</button>
+          <button class="choice" data-opt="D">D. 7.5%</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="A">
+          <p><strong>2.</strong> 超市 A 打"八折"，超市 B"降价 20%"，哪个更便宜？</p>
+          <button class="choice" data-opt="A">A. 一样便宜</button>
+          <button class="choice" data-opt="B">B. A 更便宜</button>
+          <button class="choice" data-opt="C">C. B 更便宜</button>
+          <button class="choice" data-opt="D">D. 无法比较</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="A">
+          <p><strong>3.</strong> 0.375 化成分数（最简）？</p>
+          <button class="choice" data-opt="A">A. 3/8</button>
+          <button class="choice" data-opt="B">B. 375/1000</button>
+          <button class="choice" data-opt="C">C. 1/3</button>
+          <button class="choice" data-opt="D">D. 37.5%</button>
+          <p class="result" hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 12: Summary -->
+  <section class="slide-page" data-page-type="summary" data-page-index="12" data-tts="summary" data-tsh="总结 - 三种写法同数，统一计数单位">
+    <div class="slide-inner">
+      <div class="card card-glow">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="success">Summary</span>
+          <h2>一页记住</h2>
+        </div>
+        <div class="grid">
+          <div class="summary-item"><span class="num">①</span><div><b>分数→小数</b>：分子÷分母（1/4=0.25）。</div></div>
+          <div class="summary-item"><span class="num">②</span><div><b>小数→百分数</b>：右移两位加 %（0.25→25%）；反过来去 % 左移两位。</div></div>
+          <div class="summary-item"><span class="num">③</span><div><b>分数→百分数</b>：先化小数再化百分数，或化成分母 100 的分数。</div></div>
+          <div class="summary-item"><span class="num">④</span><div><b>比较大小</b>：先统一化成小数（统一计数单位）再比，最稳。</div></div>
+        </div>
+        <div class="hint-box">🌱 分数、小数、百分数只是<strong>同一个数的三种写法</strong>。互化的本质是统一计数单位——这正是整数、分数、小数运算一致性的起点。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 12b: 综合与迁移（口诀 + 五镜头 + 分层练习） -->
+  <section class="slide-page" data-page-type="summary" data-page-index="13" data-tts="apply" data-tsh="综合与迁移 - 口诀、五镜头与分层练习">
+    <div class="slide-inner">
+      <div class="card" style="background:var(--accent-soft);border:1px solid var(--accent)">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="success">记忆锚点</span>
+          <h2>🧠 口诀卡</h2>
+        </div>
+        <p style="margin:0">分变小数，<b>分子÷分母</b>；小变百分数，<b>右移两位加 %</b>；百分数变小，<b>去号左移两位</b>准。</p>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="purple">深层理解</span>
+          <h2>🔍 五镜头看本质</h2>
+        </div>
+        <ul style="margin:0;padding-left:20px;line-height:1.9">
+          <li><b>看见它</b>：分数、小数、百分数只是同一个数的三种"外衣"。</li>
+          <li><b>拆开它</b>：分数=分子÷分母；小数=十进制位值；百分数=分母 100。</li>
+          <li><b>解释它</b>：互化的本质是统一计数单位。</li>
+          <li><b>比较它</b>：都化成小数再比，最稳。</li>
+          <li><b>迁移它</b>：折扣、命中率、出勤率都用百分数表达。</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="warn">三段式练习</span>
+          <h2>⭐ 分层练习</h2>
+        </div>
+        <ul style="margin:0;padding-left:20px;line-height:1.9">
+          <li>⭐ <b>基础巩固</b>：把 1/2、0.4、60% 互化，并比较大小。</li>
+          <li>⭐⭐ <b>能力应用</b>：0.125 = ( )%，3/8 = ( )%（填小数、百分数）。</li>
+          <li>⭐⭐⭐ <b>迁移挑战</b>：衣服先涨 10% 再降 10%，现价与原价一样吗？为什么？</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 13: Knowledge Graph -->
+  <section class="slide-page" data-page-type="summary" data-page-index="13" data-tts="knowledge-graph" data-tsh="知识图谱 - 查看前置、后续与同域知识">
+    <div class="slide-inner">
+      <div class="card card-glow">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="purple">Knowledge Graph</span>
+          <h2>知识图谱</h2>
+        </div>
+        <p style="color:var(--muted);margin:0 0 16px">本节点的前置、后续和同域知识。</p>
+        <div data-teachany-kg="math-e-fraction-decimal-percent">
+          <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 14: AI Tutor -->
+  <section class="slide-page" data-page-type="interactive" data-page-index="14" data-tts="ai-tutor" data-tsh="AI 学伴 - 先诊断卡点，再给最小提示">
+    <div class="slide-inner">
+      <div data-teachany-tutor-card></div>
+    </div>
+  </section>
+
+</div>
+
+<div id="audio-config" data-teachany-audio hidden>
+  <script type="application/json" data-teachany-audio-playlist>
+[
+  {"section":"hero","src":"tts/01-cover.mp3","title":"封面"},
+  {"section":"problem-anchor","src":"tts/02-anchor.mp3","title":"问题锚点"},
+  {"section":"objectives","src":"tts/03-objectives.mp3","title":"学习目标"},
+  {"section":"concept-fd","src":"tts/04-concept-fd.mp3","title":"分数与小数互化"},
+  {"section":"concept-dp","src":"tts/05-concept-dp.mp3","title":"小数与百分数互化"},
+  {"section":"concept-fp","src":"tts/06-concept-fp.mp3","title":"分数与百分数互化"},
+  {"section":"interactive","src":"tts/07-interactive.mp3","title":"动手互化"},
+  {"section":"summary","src":"tts/08-summary.mp3","title":"总结"}
+]
+  </script>
+</div>
+
+<nav class="slide-sidenav" id="slide-sidenav" aria-label="页面导航"></nav>
+
+<button class="play-mode-fab" id="play-mode-fab" aria-label="切换播放模式" title="切换播放模式">
+  <svg id="fab-icon-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+  <svg id="fab-icon-browse" viewBox="0 0 24 24" style="display:none"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+</button>
+
+<div class="slide-toolbar" id="slide-toolbar">
+  <button class="toolbar-btn" id="tb-prev" aria-label="上一页" title="上一页"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+  <div class="toolbar-progress" id="tb-progress" title="进度"><div class="toolbar-progress-fill" id="tb-progress-fill"></div></div>
+  <span class="toolbar-page-info" id="tb-page-info">1 / 15</span>
+  <button class="toolbar-btn" id="tb-next" aria-label="下一页" title="下一页"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+  <button class="toolbar-btn" id="tb-autoplay" aria-label="自动播放" title="自动播放"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></button>
+  <button class="toolbar-btn" id="tb-fullscreen" aria-label="全屏" title="全屏"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  var container = document.getElementById('slide-container');
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.slide-page'));
+  var totalPages = pages.length;
+  var currentPage = 0, isPlayMode = false, isAutoPlay = false, autoPlayTimer = null;
+  var progressBar = document.getElementById('slide-progress-bar');
+  var sidenav = document.getElementById('slide-sidenav');
+  var fab = document.getElementById('play-mode-fab');
+  var fabIconPlay = document.getElementById('fab-icon-play');
+  var fabIconBrowse = document.getElementById('fab-icon-browse');
+  var toolbar = document.getElementById('slide-toolbar');
+  var tbPrev = document.getElementById('tb-prev'), tbNext = document.getElementById('tb-next');
+  var tbPageInfo = document.getElementById('tb-page-info');
+  var tbProgressFill = document.getElementById('tb-progress-fill');
+  var tbProgress = document.getElementById('tb-progress');
+  var tbAutoplay = document.getElementById('tb-autoplay');
+  var tbFullscreen = document.getElementById('tb-fullscreen');
+
+  function buildSidenav() {
+    sidenav.innerHTML = '';
+    var counter = document.createElement('div'); counter.className = 'sidenav-counter'; counter.id = 'sidenav-counter';
+    counter.textContent = '1/' + totalPages; sidenav.appendChild(counter);
+    pages.forEach(function (page, i) {
+      var dot = document.createElement('button');
+      dot.className = 'sidenav-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('data-tooltip', (page.dataset.tsh || ('第' + (i + 1) + '页')).split(' - ')[0]);
+      dot.setAttribute('aria-label', '跳转到第' + (i + 1) + '页');
+      dot.addEventListener('click', function () { goToPage(i); });
+      sidenav.appendChild(dot);
+    });
+  }
+  function updateUI() {
+    var progress = totalPages > 1 ? (currentPage / (totalPages - 1)) * 100 : 100;
+    progressBar.style.width = progress + '%'; tbProgressFill.style.width = progress + '%';
+    tbPageInfo.textContent = (currentPage + 1) + ' / ' + totalPages;
+    sidenav.querySelectorAll('.sidenav-dot').forEach(function (d, i) { d.classList.toggle('active', i === currentPage); });
+    var c = document.getElementById('sidenav-counter'); if (c) c.textContent = (currentPage + 1) + '/' + totalPages;
+    tbPrev.style.opacity = currentPage === 0 ? '0.3' : '1';
+    tbNext.style.opacity = currentPage === totalPages - 1 ? '0.3' : '1';
+  }
+  function goToPage(index) {
+    if (index < 0 || index >= totalPages) return; currentPage = index;
+    if (isPlayMode) pages[currentPage].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else container.scrollTo({ top: pages[currentPage].offsetTop, behavior: 'smooth' });
+    updateUI(); dispatchPageAudio();
+  }
+  function nextPage() { if (currentPage < totalPages - 1) goToPage(currentPage + 1); }
+  function prevPage() { if (currentPage > 0) goToPage(currentPage - 1); }
+  var scrollTimeout;
+  container.addEventListener('scroll', function () {
+    if (isPlayMode) return; clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(function () {
+      var st = container.scrollTop, vh = container.clientHeight, closest = 0, min = Infinity;
+      pages.forEach(function (p, i) { var d = Math.abs(p.offsetTop - st); if (d < min) { min = d; closest = i; } });
+      if (closest !== currentPage) { currentPage = closest; updateUI(); }
+    }, 100);
+  });
+  function togglePlayMode() {
+    isPlayMode = !isPlayMode; document.body.classList.toggle('play-mode', isPlayMode);
+    document.body.classList.toggle('toolbar-visible', isPlayMode);
+    fabIconPlay.style.display = isPlayMode ? 'none' : 'block';
+    fabIconBrowse.style.display = isPlayMode ? 'block' : 'none';
+    if (isPlayMode) goToPage(currentPage);
+  }
+  fab.addEventListener('click', togglePlayMode);
+  tbPrev.addEventListener('click', prevPage); tbNext.addEventListener('click', nextPage);
+  tbProgress.addEventListener('click', function (e) { var r = tbProgress.getBoundingClientRect(); goToPage(Math.round(((e.clientX - r.left) / r.width) * (totalPages - 1))); });
+  tbAutoplay.addEventListener('click', function () { isAutoPlay = !isAutoPlay; tbAutoplay.classList.toggle('active', isAutoPlay); if (isAutoPlay) startAuto(); else stopAuto(); });
+  function startAuto() { stopAuto(); autoPlayTimer = setInterval(function () { if (currentPage < totalPages - 1) nextPage(); else { stopAuto(); isAutoPlay = false; tbAutoplay.classList.remove('active'); } }, 8000); }
+  function stopAuto() { if (autoPlayTimer) { clearInterval(autoPlayTimer); autoPlayTimer = null; } }
+  tbFullscreen.addEventListener('click', function () { if (!document.fullscreenElement) document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); else document.exitFullscreen && document.exitFullscreen(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); nextPage(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prevPage(); }
+    else if ((e.key === 'f' || e.key === 'F') && !e.ctrlKey && !e.metaKey) togglePlayMode();
+    else if (e.key === 'Escape' && isPlayMode) togglePlayMode();
+  });
+  function dispatchPageAudio() {
+    var ttsId = pages[currentPage].dataset.tts;
+    if (ttsId && window.__TEACHANY_AUDIO_PLAYER__) window.__TEACHANY_AUDIO_PLAYER__.playSection(ttsId);
+  }
+  document.addEventListener('teachany-audio-ended', function () { if (isAutoPlay && currentPage < totalPages - 1) setTimeout(nextPage, 1000); });
+
+  // Problem anchor
+  window.__TEACHANY_LEARNER_QUESTION__ = '';
+  window.__TEACHANY_TUTOR_CONFIG__ = {
+    courseId: 'math-e-fraction-decimal-percent', courseTitle: '分数、小数、百分数互化',
+    subject: 'math', grade: '6', nodeId: 'math-e-fraction-decimal-percent', lessonType: 'new-concept',
+    getLearnerQuestion: function () { return window.__TEACHANY_LEARNER_QUESTION__ || ''; },
+    getContext: function () { return (pages[currentPage] || document.body).innerText.slice(0, 3000); }
+  };
+  function setLearnerQuestion(q) {
+    window.__TEACHANY_LEARNER_QUESTION__ = q || '';
+    var fb = document.getElementById('anchor-feedback');
+    if (fb) fb.textContent = q ? ('你的问题：' + q) : '选择或输入后，本课会围绕你的问题展开。';
+  }
+  document.querySelectorAll('[data-anchor-choice]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-anchor-choice]').forEach(function (x) { x.classList.remove('selected'); });
+      b.classList.add('selected'); setLearnerQuestion(b.getAttribute('data-anchor-choice') || b.textContent.trim());
+    });
+  });
+  document.getElementById('learner-question-input') && document.getElementById('learner-question-input').addEventListener('input', function (e) { setLearnerQuestion(e.target.value.trim()); });
+
+  // Quiz handler
+  document.querySelectorAll('.quiz-block').forEach(function (block) {
+    var correct = block.getAttribute('data-correct');
+    var fb = block.querySelector('.result');
+    block.querySelectorAll('.choice').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var picked = btn.getAttribute('data-opt');
+        block.querySelectorAll('.choice').forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+        if (picked === correct) {
+          btn.classList.add('correct');
+          if (fb) { fb.hidden = false; fb.className = 'result'; fb.textContent = '✅ 答对了！'; }
+        } else {
+          btn.classList.add('wrong');
+          var right = block.querySelector('[data-opt="' + correct + '"]'); if (right) right.classList.add('correct');
+          if (fb) { fb.hidden = false; fb.className = 'result error'; fb.textContent = '❌ 再想想，正确答案是 ' + correct + '。'; }
+        }
+      });
+    });
+  });
+
+  buildSidenav(); updateUI();
+  document.body.classList.add('toolbar-visible');
+  setTimeout(function () { if (!isPlayMode) document.body.classList.remove('toolbar-visible'); }, 3000);
+  document.addEventListener('DOMContentLoaded', function () {
+    var cv = document.querySelector('meta[name="course-version"]'); if (cv) document.getElementById('course-version-display').textContent = cv.content;
+  });
+})();
+</script>
+
+<!-- 转换器逻辑 -->
+<script>
+(function () {
+  var num = document.getElementById('cvNum'), den = document.getElementById('cvDen');
+  var dec = document.getElementById('cvDec'), pct = document.getElementById('cvPct');
+  var fracOut = document.getElementById('cvFracOut'), decOut = document.getElementById('cvDecOut'), pctOut = document.getElementById('cvPctOut');
+  var msg = document.getElementById('cvMsg');
+  var grid = document.getElementById('percentGrid'), nlCanvas = document.getElementById('nlCanvas');
+  // 构建 100 格百分比方块
+  var cells = [];
+  for (var i = 0; i < 100; i++) { var c = document.createElement('div'); c.className = 'pc'; grid.appendChild(c); cells.push(c); }
+  function gcd(a, b) { return b ? gcd(b, a % b) : a; }
+  function drawCanvas(v) {
+    if (!nlCanvas) return;
+    var ctx = nlCanvas.getContext('2d');
+    var W = nlCanvas.width, H = nlCanvas.height, y = H / 2;
+    ctx.clearRect(0, 0, W, H);
+    var x0 = 20, x1 = W - 20;
+    ctx.strokeStyle = '#a98c63'; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(x0, y); ctx.lineTo(x1, y); ctx.stroke();
+    ctx.fillStyle = '#8a7f74';
+    for (var i = 0; i <= 10; i++) {
+      var tx = x0 + (i / 10) * (x1 - x0);
+      ctx.beginPath(); ctx.moveTo(tx, y - 6); ctx.lineTo(tx, y + 6); ctx.stroke();
+      ctx.font = '11px sans-serif'; ctx.textAlign = 'center'; ctx.fillText((i / 10), tx, y + 20);
+    }
+    var x = x0 + Math.max(0, Math.min(1, v)) * (x1 - x0);
+    ctx.fillStyle = '#4ecdc4'; ctx.beginPath(); ctx.arc(x, y, 7, 0, Math.PI * 2); ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#4ecdc4'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(v.toFixed(3), x, y - 14);
+  }
+  nlCanvas.addEventListener('pointerdown', function (e) {
+    var r = nlCanvas.getBoundingClientRect();
+    var rx = (e.clientX - r.left) / r.width * nlCanvas.width;
+    var x0 = 20, x1 = nlCanvas.width - 20;
+    var v = Math.max(0, Math.min(1, (rx - x0) / (x1 - x0)));
+    dec.value = (Math.round(v * 1e4) / 1e4).toFixed(4).replace(/0+$/, '').replace(/\.$/, '') || '0';
+    fromDecimal(); drawCanvas(v);
+  });
+  function renderFromDecimal(v) {
+    if (!isFinite(v)) return;
+    fracOut.textContent = num.value + '/' + (den.value || 1);
+    decOut.textContent = v.toFixed(4).replace(/0+$/, '').replace(/\.$/, '') || '0';
+    pctOut.textContent = (v * 100).toFixed(1).replace(/\.0$/, '') + '%';
+    var pInt = Math.round(Math.max(0, Math.min(100, v * 100)));
+    cells.forEach(function (c, i) { c.classList.toggle('on', i < pInt); });
+    drawCanvas(Math.max(0, Math.min(1, v)));
+  }
+  function fromFraction() {
+    var n = parseFloat(num.value), d = parseFloat(den.value);
+    if (!d) { msg.textContent = '分母不能为 0。'; return; }
+    var v = n / d; renderFromDecimal(v);
+    dec.value = (Math.round(v * 1e6) / 1e6).toFixed(4).replace(/0+$/, '').replace(/\.$/, '') || '0';
+    pct.value = Math.round(v * 1000) / 10;
+    msg.textContent = n + '/' + d + ' = ' + (Math.round(v*1e4)/1e4) + ' = ' + (Math.round(v*1000)/10) + '%';
+  }
+  function fromDecimal() {
+    var v = parseFloat(dec.value); if (isNaN(v)) return;
+    var n = Math.round(v * 1000), d = 1000, g = gcd(n, d); n /= g; d /= g;
+    num.value = n; den.value = d; renderFromDecimal(v);
+    pct.value = Math.round(v * 1000) / 10;
+    msg.textContent = v + ' = ' + n + '/' + d + ' = ' + (Math.round(v*1000)/10) + '%';
+  }
+  function fromPercent() {
+    var p = parseFloat(pct.value); if (isNaN(p)) return;
+    var v = p / 100; var n = Math.round(v * 1000), d = 1000, g = gcd(n, d); n /= g; d /= g;
+    num.value = n; den.value = d; dec.value = (Math.round(v * 1e6) / 1e6).toFixed(4).replace(/0+$/, '').replace(/\.$/, '') || '0';
+    renderFromDecimal(v); msg.textContent = p + '% = ' + v + ' = ' + n + '/' + d;
+  }
+  num.addEventListener('input', fromFraction); den.addEventListener('input', fromFraction);
+  dec.addEventListener('input', fromDecimal); pct.addEventListener('input', fromPercent);
+  fromFraction();
+})();
+</script>
+
+<!-- 标准模块脚本（CDN，启用 mp3 旁白，不含 data-tts-disabled） -->
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/ai-tutor.js"></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tutor-card.js" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tts-narrator.js" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-section-hints.js" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-knowledge-graph.js" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-audio-player.js?v=paged-20260521" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-floating-dock.js" defer></script>
+</body>
+</html>

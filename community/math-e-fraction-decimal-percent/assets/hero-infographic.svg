@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" font-family="-apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#a8947e"></path>
+    </marker>
+    <style>
+      .node { stroke-width: 2; rx: 16px; }
+      .n-frac { fill: #ffe3e3; stroke: #ff6b6b; }
+      .n-dec  { fill: #d6f5f1; stroke: #4ecdc4; }
+      .n-pct  { fill: #fff3cf; stroke: #ffd166; }
+      .ntitle { font-size: 20px; font-weight: 700; fill: #2b2b2b; }
+      .nsub   { font-size: 12px; fill: #5a5249; }
+      .edge   { stroke: #c2b19a; stroke-width: 2; fill: none; }
+      .lab    { font-size: 12.5px; fill: #4a4036; }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="380" fill="#fffbf0"/>
+  <text x="340" y="28" text-anchor="middle" font-size="18" font-weight="700" fill="#2b2b2b">分数 · 小数 · 百分数：同一个数的三种写法（可互化）</text>
+
+  <!-- 分数 ↔ 小数（上边） -->
+  <path class="edge" d="M232,92 L446,92" marker-end="url(#arrow)"/>
+  <path class="edge" d="M446,108 L232,108" marker-end="url(#arrow)"/>
+  <text class="lab" x="339" y="83" text-anchor="middle">分子 ÷ 分母</text>
+  <text class="lab" x="339" y="128" text-anchor="middle">分母为 10ⁿ 写分数</text>
+
+  <!-- 分数 ↔ 百分数（左边） -->
+  <path class="edge" d="M162,132 C150,182 212,226 280,256" marker-end="url(#arrow)"/>
+  <path class="edge" d="M300,258 C250,230 150,184 154,142" marker-end="url(#arrow)"/>
+  <text class="lab" x="118" y="205" text-anchor="middle">先化小数 / 分母100</text>
+  <text class="lab" x="312" y="220" text-anchor="middle">分母100再约分</text>
+
+  <!-- 小数 ↔ 百分数（右边） -->
+  <path class="edge" d="M518,132 C530,182 468,226 400,256" marker-end="url(#arrow)"/>
+  <path class="edge" d="M380,258 C430,230 530,184 526,142" marker-end="url(#arrow)"/>
+  <text class="lab" x="562" y="205" text-anchor="middle">右移两位 + %</text>
+  <text class="lab" x="368" y="220" text-anchor="middle">去% + 左移两位</text>
+
+  <!-- 节点：分数 -->
+  <g>
+    <rect class="node n-frac" x="75" y="58" width="150" height="68"/>
+    <text class="ntitle" x="150" y="92" text-anchor="middle">分数</text>
+    <text class="nsub" x="150" y="112" text-anchor="middle">½ · ¾ · ⅖</text>
+  </g>
+  <!-- 节点：小数 -->
+  <g>
+    <rect class="node n-dec" x="455" y="58" width="150" height="68"/>
+    <text class="ntitle" x="530" y="92" text-anchor="middle">小数</text>
+    <text class="nsub" x="530" y="112" text-anchor="middle">0.5 · 0.75 · 0.4</text>
+  </g>
+  <!-- 节点：百分数 -->
+  <g>
+    <rect class="node n-pct" x="265" y="262" width="150" height="68"/>
+    <text class="ntitle" x="340" y="296" text-anchor="middle">百分数</text>
+    <text class="nsub" x="340" y="316" text-anchor="middle">50% · 75% · 40%</text>
+  </g>
+</svg>
