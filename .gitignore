@@ -1,0 +1,9 @@
+# 忽略规则
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+.cache/
+*.log
+.idea/
+.vscode/
