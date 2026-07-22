@@ -25,9 +25,7 @@
 <meta name="teachany-free-mode" content="false">
 <meta name="teachany-template-version" content="2.0">
 
-<!-- 标准五件套 + 音频播放器（CDN 绝对路径，便于本地预览与发布后加载） -->
-<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/ai-tutor.css">
-<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tutor-card.css">
+<!-- 标准模块 + 音频播放器（CDN 绝对路径，便于本地预览与发布后加载；按用户要求不含 AI 学伴 / 品牌顶栏） -->
 <link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tts-narrator.css">
 <link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-section-hints.css">
 <link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-knowledge-graph.css">
@@ -142,21 +140,6 @@ body.teachany-elementary .slide-page[data-page-type="quiz"] {
 body.teachany-elementary .slide-page[data-page-type="summary"] {
   background: radial-gradient(circle at 50% 50%, rgba(255,107,107,0.08), transparent 45%), radial-gradient(circle at 20% 20%, rgba(78,205,196,0.06), transparent 30%);
 }
-
-.teachany-brand-bar {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 10px 20px;
-  background: rgba(43,43,43,0.92); backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease;
-}
-body.play-mode .teachany-brand-bar { transform: translateY(-100%); }
-.brand-logo { display: flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; font-weight: 800; }
-.brand-mark { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #ff6b6b, #4ecdc4); color: #fff; font-weight: 900; font-size: 14px; }
-.brand-right { display: flex; align-items: center; gap: 12px; font-size: 13px; }
-.brand-link { color: #cfcfcf; transition: color 0.2s; }
-.brand-link:hover { color: #fff; text-decoration: none; }
-.brand-version { color: #e2e2e2; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: rgba(255,255,255,.10); padding: 4px 10px; border-radius: 999px; font-size: 12px; }
 
 .card {
   background: linear-gradient(160deg, #ffffff, #fff6e6);
@@ -306,16 +289,6 @@ body.play-mode .slide-sidenav, body.toolbar-visible .slide-sidenav { opacity: 1;
 <body class="teachany-elementary">
 
 <div class="slide-progress-bar" id="slide-progress-bar" style="width: 0%"></div>
-
-<div class="teachany-brand-bar">
-  <a class="brand-logo" href="https://weponusa.github.io/teachany/" aria-label="TeachAny Gallery">
-    <span class="brand-mark">T</span><span class="brand-name">TeachAny</span>
-  </a>
-  <div class="brand-right">
-    <a class="brand-link" href="https://weponusa.github.io/teachany/">Gallery</a>
-    <span class="brand-version">v<span id="course-version-display">1.0.0</span> · skill v<span id="skill-version-display">7.18.0</span></span>
-  </div>
-</div>
 
 <div class="slide-container" id="slide-container">
 
@@ -720,13 +693,6 @@ body.play-mode .slide-sidenav, body.toolbar-visible .slide-sidenav { opacity: 1;
     </div>
   </section>
 
-  <!-- Page 14: AI Tutor -->
-  <section class="slide-page" data-page-type="interactive" data-page-index="14" data-tts="ai-tutor" data-tsh="AI 学伴 - 先诊断卡点，再给最小提示">
-    <div class="slide-inner">
-      <div data-teachany-tutor-card></div>
-    </div>
-  </section>
-
 </div>
 
 <div id="audio-config" data-teachany-audio hidden>
@@ -754,7 +720,7 @@ body.play-mode .slide-sidenav, body.toolbar-visible .slide-sidenav { opacity: 1;
 <div class="slide-toolbar" id="slide-toolbar">
   <button class="toolbar-btn" id="tb-prev" aria-label="上一页" title="上一页"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
   <div class="toolbar-progress" id="tb-progress" title="进度"><div class="toolbar-progress-fill" id="tb-progress-fill"></div></div>
-  <span class="toolbar-page-info" id="tb-page-info">1 / 15</span>
+  <span class="toolbar-page-info" id="tb-page-info">1 / 14</span>
   <button class="toolbar-btn" id="tb-next" aria-label="下一页" title="下一页"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
   <button class="toolbar-btn" id="tb-autoplay" aria-label="自动播放" title="自动播放"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></button>
   <button class="toolbar-btn" id="tb-fullscreen" aria-label="全屏" title="全屏"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
@@ -971,9 +937,7 @@ body.play-mode .slide-sidenav, body.toolbar-visible .slide-sidenav { opacity: 1;
 })();
 </script>
 
-<!-- 标准模块脚本（CDN，启用 mp3 旁白，不含 data-tts-disabled） -->
-<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/ai-tutor.js"></script>
-<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tutor-card.js" defer></script>
+<!-- 标准模块脚本（CDN，启用 mp3 旁白，不含 data-tts-disabled；按用户要求不含 AI 学伴 / 品牌顶栏） -->
 <script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tts-narrator.js" defer></script>
 <script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-section-hints.js" defer></script>
 <script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-knowledge-graph.js" defer></script>
