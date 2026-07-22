@@ -1,0 +1,10 @@
+[
+  {"section": "hero", "src": "tts/01-cover.mp3", "title": "封面"},
+  {"section": "problem-anchor", "src": "tts/02-anchor.mp3", "title": "问题锚点"},
+  {"section": "objectives", "src": "tts/03-objectives.mp3", "title": "学习目标"},
+  {"section": "concept-meaning", "src": "tts/04-meaning.mp3", "title": "平均数的意义"},
+  {"section": "concept-calc", "src": "tts/05-calc.mp3", "title": "怎么求平均数"},
+  {"section": "worked", "src": "tts/06-worked.mp3", "title": "例题讲解"},
+  {"section": "interactive", "src": "tts/07-interactive.mp3", "title": "动手匀一匀"},
+  {"section": "summary", "src": "tts/08-summary.mp3", "title": "总结"}
+]

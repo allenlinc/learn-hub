@@ -1,0 +1,920 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>平均数概念</title>
+<meta name="description" content="小学四年级数学（统计与概率）：理解平均数的意义，会用移多补少和先合后分求平均数，能借助平均数比较数据，并体会极端值对平均数的影响，形成初步的数据意识。">
+
+<!-- TeachAny routing meta -->
+<meta name="course-id" content="math-e-average-concept">
+<meta name="course-title" content="平均数概念">
+<meta name="course-subject" content="math">
+<meta name="course-grade" content="小学四年级">
+<meta name="course-prereqs" content="math-e-add-subtract,math-e-data-collect">
+<meta name="course-next" content="math-e-average-median">
+<meta name="course-version" content="1.0.0">
+<meta name="teachany-version" content="7.18.0">
+<meta name="teachany-node" content="math-e-average-concept">
+<meta name="teachany-subject" content="math">
+<meta name="teachany-grade" content="4">
+<meta name="teachany-stage" content="elementary">
+<meta name="teachany-domain" content="statistics-probability">
+<meta name="teachany-prerequisites" content="加减法,简单的数据收集与整理">
+<meta name="teachany-lesson-type" content="new-concept">
+<meta name="teachany-author" content="TeachAny">
+<meta name="teachany-difficulty" content="2">
+<meta name="teachany-free-mode" content="false">
+<meta name="teachany-template-version" content="2.0">
+
+<!-- 标准模块（CDN 绝对路径；本课按用户要求含 AI 学伴 / 知识图谱 / 导师卡片，不含品牌顶栏） -->
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tts-narrator.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-section-hints.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-knowledge-graph.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tutor-card.css">
+<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-audio-player.css">
+
+<style>
+/* ======================================================
+   TeachAny v2 Design System — 小学(elementary) 暖色覆盖
+   ====================================================== */
+:root {
+  --bg: #fffbf0;
+  --bg-subtle: #fff6e6;
+  --panel: #ffffff;
+  --card: #ffffff;
+  --card-elevated: #fffdf7;
+  --line: #ffe0c2;
+  --line-subtle: rgba(255, 107, 107, 0.12);
+  --text: #2b2b2b;
+  --text-secondary: #5a5249;
+  --muted: #8a7f74;
+  --brand: #ff6b6b;
+  --brand-soft: rgba(255, 107, 107, 0.12);
+  --brand-2: #4ecdc4;
+  --brand-2-soft: rgba(78, 205, 196, 0.14);
+  --accent: #ffd166;
+  --accent-soft: rgba(255, 209, 102, 0.18);
+  --ok: #2ecc71;
+  --warn: #f4a261;
+  --danger: #ef4444;
+  --safe-top: env(safe-area-inset-top);
+  --safe-bottom: env(safe-area-inset-bottom);
+  --page-padding: 24px;
+  --card-radius: 20px;
+  --card-radius-sm: 14px;
+  --slide-height: 100vh;
+  --slide-height-fallback: 100dvh;
+  --toolbar-height: 56px;
+  --sidenav-width: 48px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; max-width: 100%; overflow-x: hidden; }
+body.teachany-elementary {
+  padding-top: var(--safe-top);
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Source Han Sans SC", system-ui, sans-serif;
+  line-height: 1.75;
+  font-size: 16px;
+}
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+button, a, input, select, textarea { min-height: 44px; }
+img, video, canvas, svg { max-width: 100%; height: auto; }
+h1, h2, h3, h4 { margin: 0; }
+
+.slide-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: var(--slide-height-fallback, var(--slide-height));
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+body:not(.play-mode) .slide-container { scroll-snap-type: y proximity; }
+body.play-mode .slide-container { scroll-snap-type: y mandatory; overflow: hidden; }
+
+.slide-page {
+  min-height: var(--slide-height-fallback, var(--slide-height));
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--page-padding);
+  padding-bottom: calc(var(--page-padding) + var(--toolbar-height));
+  position: relative;
+  overflow: hidden;
+}
+.slide-page .slide-inner { max-width: 880px; width: 100%; position: relative; z-index: 2; margin: 0 auto; }
+.slide-page .slide-inner > * { width: 100%; box-sizing: border-box; }
+.card .card { padding: 18px; box-shadow: none; border: 1px solid var(--line-subtle); }
+
+body.teachany-elementary .slide-page[data-page-type="cover"] {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255,107,107,0.14), transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(78,205,196,0.14), transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(255,209,102,0.10), transparent 60%);
+  text-align: center;
+}
+body.teachany-elementary .slide-page[data-page-type="cover"] h1 {
+  font-size: clamp(30px, 6.5vw, 52px);
+  line-height: 1.18;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa94d 50%, #4ecdc4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+body.teachany-elementary .slide-page[data-page-type="objectives"] {
+  background: radial-gradient(circle at 0% 100%, rgba(46,204,113,0.10), transparent 40%), radial-gradient(circle at 100% 0%, rgba(255,107,107,0.08), transparent 40%);
+}
+body.teachany-elementary .slide-page[data-page-type="concept"] {
+  background: radial-gradient(circle at 30% 20%, rgba(255,107,107,0.08), transparent 35%), radial-gradient(circle at 70% 80%, rgba(78,205,196,0.08), transparent 35%);
+}
+body.teachany-elementary .slide-page[data-page-type="interactive"] {
+  background: radial-gradient(circle at 50% 0%, rgba(46,204,113,0.10), transparent 40%), radial-gradient(circle at 80% 100%, rgba(255,107,107,0.06), transparent 35%);
+}
+body.teachany-elementary .slide-page[data-page-type="quiz"] {
+  background: radial-gradient(circle at 20% 80%, rgba(244,162,97,0.10), transparent 35%), radial-gradient(circle at 80% 20%, rgba(78,205,196,0.08), transparent 35%);
+}
+body.teachany-elementary .slide-page[data-page-type="summary"] {
+  background: radial-gradient(circle at 50% 50%, rgba(255,107,107,0.08), transparent 45%), radial-gradient(circle at 20% 20%, rgba(78,205,196,0.06), transparent 30%);
+}
+
+.card {
+  background: linear-gradient(160deg, #ffffff, #fff6e6);
+  border: 1px solid var(--line-subtle);
+  border-radius: var(--card-radius);
+  padding: 24px;
+  box-shadow: 0 6px 28px rgba(255,150,90,0.10), 0 1px 0 rgba(255,255,255,0.6) inset;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(255,150,90,0.16); }
+.card-accent { border-top: 3px solid; border-image: linear-gradient(90deg, #ff6b6b, #4ecdc4) 1; }
+.card-glow { box-shadow: 0 6px 28px rgba(78,205,196,0.16), 0 0 40px rgba(78,205,196,0.08); }
+
+.section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.section-header h2 { font-size: clamp(20px, 4vw, 26px); font-weight: 700; line-height: 1.3; }
+
+.phase-tag {
+  display: inline-flex; align-items: center; gap: 6px; color: #ff6b6b;
+  background: rgba(255,107,107,0.12); border: 1px solid rgba(255,107,107,0.25);
+  border-radius: 999px; padding: 5px 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; text-transform: uppercase;
+}
+.phase-tag[data-variant="success"] { color: #1f9e57; background: rgba(46,204,113,0.12); border-color: rgba(46,204,113,0.25); }
+.phase-tag[data-variant="purple"] { color: #2bb3a8; background: rgba(78,205,196,0.14); border-color: rgba(78,205,196,0.28); }
+.phase-tag[data-variant="warn"] { color: #d98324; background: rgba(244,162,97,0.12); border-color: rgba(244,162,97,0.25); }
+
+.grid { display: grid; grid-template-columns: 1fr; gap: 12px; width: 100%; }
+.grid.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid > * { min-width: 0; }
+.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.flex-row { display: flex; gap: 12px; margin-top: 14px; align-items: center; flex-wrap: wrap; }
+.flex-row .choice { flex: 1; min-width: 120px; text-align: center; }
+
+.objectives { display: grid; grid-template-columns: 1fr; gap: 10px; list-style: none; padding: 0; }
+.objectives li {
+  display: flex; align-items: flex-start; gap: 10px; padding: 12px 16px;
+  border-radius: var(--card-radius-sm); background: rgba(255,107,107,0.06); border: 1px solid var(--line-subtle);
+  transition: background 0.2s;
+}
+.objectives li:hover { background: rgba(255,107,107,0.12); }
+.objectives li::before { content: "✦"; color: #ff6b6b; font-size: 14px; margin-top: 2px; flex-shrink: 0; }
+
+.choice {
+  width: 100%; text-align: left; border: 1px solid rgba(255,107,107,0.22);
+  border-radius: var(--card-radius-sm); background: rgba(255,107,107,0.05); color: var(--text);
+  padding: 16px 20px; cursor: pointer; font-size: 15px; line-height: 1.5; transition: all 0.2s ease;
+}
+.choice:hover { background: rgba(255,107,107,0.12); border-color: rgba(255,107,107,0.4); transform: translateX(4px); }
+.choice.selected { border-color: #ff6b6b; background: rgba(255,107,107,0.16); box-shadow: 0 0 0 3px rgba(255,107,107,0.12); }
+.choice.correct { border-color: var(--ok); background: rgba(46,204,113,0.14); }
+.choice.wrong { border-color: var(--danger); background: rgba(239,68,68,0.10); }
+/* 测验选项之间留出竖向间距，避免按钮紧贴在一起 */
+.quiz-block .choice + .choice { margin-top: 12px; }
+
+input, textarea {
+  width: 100%; border-radius: 12px; border: 1px solid var(--line); background: #fffdf7; color: var(--text);
+  padding: 14px 16px; font-size: 15px; transition: border-color 0.2s, box-shadow 0.2s;
+}
+input:focus, textarea:focus { outline: none; border-color: #ff6b6b; box-shadow: 0 0 0 3px rgba(255,107,107,0.14); }
+
+.result { padding: 16px 20px; border-radius: var(--card-radius-sm); background: rgba(46,204,113,0.10); border: 1px solid rgba(46,204,113,0.22); font-size: 15px; line-height: 1.6; }
+.result.warn { background: rgba(244,162,97,0.10); border-color: rgba(244,162,97,0.25); }
+.result.error { background: rgba(239,68,68,0.10); border-color: rgba(239,68,68,0.22); }
+
+.ta-standard-figure { margin: 20px auto; max-width: 860px; }
+.ta-standard-figure img { display: block; width: 100%; border-radius: 16px; border: 1px solid var(--line-subtle); }
+.ta-standard-figure figcaption { margin-top: 10px; color: var(--muted); font-size: 14px; text-align: center; }
+
+.slide-progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); z-index: 200; transition: width 0.3s ease; border-radius: 0 2px 2px 0; }
+
+.slide-toolbar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 20px;
+  padding-bottom: calc(10px + var(--safe-bottom));
+  background: rgba(43,43,43,0.92); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,0.08);
+  transform: translateY(100%); transition: transform 0.3s ease;
+}
+body.play-mode .slide-toolbar, body.toolbar-visible .slide-toolbar { transform: translateY(0); }
+.toolbar-btn { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: none; border-radius: 10px; background: rgba(255,255,255,0.10); color: #fff; cursor: pointer; transition: all 0.2s; font-size: 18px; }
+.toolbar-btn:hover { background: rgba(255,255,255,0.18); }
+.toolbar-btn.active { background: rgba(255,107,107,0.25); color: #ffd0d0; }
+.toolbar-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.toolbar-page-info { color: #ddd; font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; min-width: 60px; text-align: center; }
+.toolbar-progress { flex: 1; max-width: 200px; height: 4px; background: rgba(255,255,255,0.12); border-radius: 2px; overflow: hidden; cursor: pointer; }
+.toolbar-progress-fill { height: 100%; background: linear-gradient(90deg, #ff6b6b, #4ecdc4); border-radius: 2px; transition: width 0.3s ease; }
+
+.slide-sidenav {
+  position: fixed; right: 12px; top: 50%; transform: translateY(-50%); z-index: 90;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 3px; opacity: 0; transition: opacity 0.3s ease;
+  max-height: 70vh; overflow-y: auto; scrollbar-width: none; padding: 8px 4px; border-radius: 12px;
+  background: rgba(43,43,43,0.45); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08);
+}
+.slide-sidenav::-webkit-scrollbar { display: none; }
+body.play-mode .slide-sidenav, body.toolbar-visible .slide-sidenav { opacity: 1; }
+.sidenav-dot { width: 28px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.18); border: none; cursor: pointer; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); position: relative; padding: 0; flex-shrink: 0; }
+.sidenav-dot:hover { background: rgba(255,107,107,0.6); width: 36px; }
+.sidenav-dot.active { background: #ff6b6b; width: 36px; height: 5px; box-shadow: 0 0 10px rgba(255,107,107,0.6); }
+.sidenav-dot[data-tooltip]::before {
+  content: attr(data-tooltip); position: absolute; right: calc(100% + 10px); top: 50%; transform: translateY(-50%);
+  padding: 5px 10px; background: rgba(43,43,43,0.96); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px;
+  color: #fff; font-size: 11px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+}
+.sidenav-dot:hover[data-tooltip]::before { opacity: 1; }
+.sidenav-counter { font-size: 10px; color: rgba(255,255,255,0.6); text-align: center; padding: 4px 0 2px; font-variant-numeric: tabular-nums; letter-spacing: 0.5px; width: 100%; }
+
+.play-mode-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 90; width: 48px; height: 48px; border-radius: 50%; border: none;
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(255,107,107,0.35); transition: all 0.3s ease;
+}
+.play-mode-fab:hover { transform: scale(1.1); }
+.play-mode-fab svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+.step-grid { display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
+.step-item { display: flex; gap: 10px; padding: 12px 14px; border-radius: 12px; background: rgba(78,205,196,0.08); border: 1px solid var(--line-subtle); }
+.step-item .num { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: #4ecdc4; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 14px; }
+.kp-tag { display: inline-block; font-size: 12px; font-family: ui-monospace, monospace; color: #2bb3a8; background: rgba(78,205,196,0.14); border: 1px solid rgba(78,205,196,0.3); border-radius: 6px; padding: 2px 8px; margin-left: 6px; }
+
+.canvas-wrap { overflow: auto; background: #fffdf7; border: 1px solid var(--line-subtle); border-radius: 16px; padding: 16px; }
+.formula { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: rgba(255,209,102,0.16); border: 1px solid rgba(255,209,102,0.4); border-radius: 10px; padding: 10px 14px; display: inline-block; margin: 6px 0; color: #7a5a00; }
+.hint-box { margin-top: 12px; padding: 12px 16px; border-radius: 12px; background: rgba(244,162,97,0.10); border: 1px dashed rgba(244,162,97,0.5); font-size: 14px; }
+
+.fair-control { display: flex; align-items: center; gap: 8px; background: #fffdf7; border: 1px solid var(--line); border-radius: 12px; padding: 6px 10px; }
+.fair-control .fc-btn { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--line); background: #fff; color: #ff6b6b; font-size: 18px; font-weight: 700; cursor: pointer; line-height: 1; }
+.fair-control .fc-val { min-width: 22px; text-align: center; font-weight: 700; color: #2b2b2b; }
+.fair-control .fc-name { font-size: 12px; color: var(--muted); }
+
+@media (max-width: 768px) {
+  :root { --page-padding: 16px; --card-radius: 16px; }
+  .slide-page { padding: 16px 14px; padding-bottom: calc(16px + var(--toolbar-height)); }
+  .grid, .grid-2, .grid-3, .objectives, .grid-2col { grid-template-columns: 1fr !important; }
+  .flex-row { flex-direction: column; }
+  .flex-row .choice { min-width: 100%; }
+  .card { padding: 18px; }
+  .slide-sidenav { right: 6px; }
+}
+.text-gradient { background: linear-gradient(135deg, #ff6b6b, #4ecdc4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.animate-in { animation: fadeUp 0.5s ease-out both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body class="teachany-elementary">
+
+<div class="slide-progress-bar" id="slide-progress-bar" style="width: 0%"></div>
+
+<div class="slide-container" id="slide-container">
+
+  <!-- Page 0: Cover -->
+  <section class="slide-page" data-page-type="cover" data-page-index="0" data-tts="hero" data-tsh="封面 - 为什么同组数也能用一个代表值">
+    <div class="slide-inner">
+      <h1>平均数概念</h1>
+      <p class="subtitle">小明 3 局得 2 分、小红 5 局得 4 分，谁打球更厉害？光看总数不公平——今天学会用"平均数"把比赛拉到同一起跑线。</p>
+      <p style="color:var(--muted);font-size:14px;margin-top:10px">平均数，表示一组数据的总体水平，是"匀一匀"之后每组都一样的那个代表值；它帮我们把不好比的数据，放在同一把尺子上比较。</p>
+      <figure class="ta-standard-figure" style="margin-top:28px">
+        <img src="./assets/hero-infographic.svg" alt="平均数的意义：把高低不一的柱子匀成一样高，相同高度即平均数 知识结构图">
+        <figcaption>把一组数"匀一匀"，让每根柱子一样高——那个相同的高度，就是平均数</figcaption>
+      </figure>
+      <video controls preload="metadata" playsinline style="width:100%;max-width:480px;margin:22px auto 0;display:block;border-radius:14px;box-shadow:0 6px 20px rgba(255,107,107,0.18)">
+        <source src="./assets/intro.mp4" type="video/mp4">
+        你的浏览器不支持视频播放，可下载 assets/intro.mp4 查看。
+      </video>
+    </div>
+  </section>
+
+  <!-- Page 1: Problem Anchor -->
+  <section class="slide-page" data-page-type="interactive" data-page-index="1" data-tts="problem-anchor" data-tsh="问题锚点 - 先确定你想解决的问题">
+    <div class="slide-inner">
+      <div class="card card-accent">
+        <div class="section-header">
+          <span class="phase-tag">Problem Anchor</span>
+          <h2>今天想解决什么问题？</h2>
+        </div>
+        <p style="color:var(--muted);margin:0 0 16px">选一个你关心的问题，后面的内容会围绕它展开。</p>
+        <div class="hint-box" style="margin-top:4px;background:var(--brand-soft);border-color:var(--brand)">💡 <b>为什么学？</b>我们已经会加减、也会收集数据（已经知道），可一比"谁更多、哪组更好"就糊涂——这就是今天要解决的问题（但…问题）；学会求平均数，数据就能"说同一种语言"（所以学）。</div>
+        <div class="grid" id="problem-anchor-choices">
+          <button class="choice" data-anchor-choice="比分：小明3局得2分、小红5局得4分，谁更厉害？">比分：小明3局得2分、小红5局得4分，谁更厉害？</button>
+          <button class="choice" data-anchor-choice="记账：本周每天零花钱，哪天算平均水平？">记账：本周每天零花钱，哪天算平均水平？</button>
+          <button class="choice" data-anchor-choice="体检：全班身高平均多少，我算不算矮？">体检：全班身高平均多少，我算不算矮？</button>
+          <button class="choice" data-anchor-choice="我就是想搞懂平均数怎么算">我就是想搞懂平均数怎么算</button>
+        </div>
+        <label style="display:block;margin-top:20px;color:var(--muted);font-size:14px">或者，写下你自己的问题
+          <input id="learner-question-input" placeholder="把你卡住的问题写在这里" style="margin-top:8px">
+        </label>
+        <p id="anchor-feedback" class="result warn" style="margin-top:16px">选择或输入后，本课会围绕你的问题展开。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 2: Learning Objectives -->
+  <section class="slide-page" data-page-type="objectives" data-page-index="2" data-tts="objectives" data-tsh="学习目标 - 明确这节课结束时能做到什么">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="success">Objectives</span>
+          <h2>学习目标</h2>
+        </div>
+        <ul class="objectives">
+          <li>能说出<strong>平均数的意义</strong>：它表示一组数据的总体水平，是"移多补少"后每组的代表值。</li>
+          <li>会用<strong>先合后分</strong>的方法求平均数：总数 ÷ 总份数。</li>
+          <li>能借助平均数比较两组数据，并<strong>体会极端值</strong>对平均数的影响，形成初步的数据意识。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 3: Pretest -->
+  <section class="slide-page" data-page-type="quiz" data-page-index="3" data-tts="pretest" data-tsh="前测 - 先看看你已经会多少">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="warn">Pretest</span>
+          <h2>前测：先试试两题</h2>
+        </div>
+        <div class="quiz-block" data-correct="C">
+          <p><strong>1.</strong> 求 2、4、6、8 的平均数？</p>
+          <button class="choice" data-opt="A">A. 4</button>
+          <button class="choice" data-opt="B">B. 5</button>
+          <button class="choice" data-opt="C">C. 6</button>
+          <button class="choice" data-opt="D">D. 8</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="B">
+          <p><strong>2.</strong> 下面哪句话更接近"平均数"的意思？</p>
+          <button class="choice" data-opt="A">A. 一组数据里最大的那个数</button>
+          <button class="choice" data-opt="B">B. 匀一匀之后每组都一样的代表值</button>
+          <button class="choice" data-opt="C">C. 一组数据里最小的那个数</button>
+          <button class="choice" data-opt="D">D. 数据出现的次数</button>
+          <p class="result" hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 4: Concept 平均数的意义 -->
+  <section class="slide-page" data-page-type="concept" data-page-index="4" data-tts="concept-meaning" data-tsh="概念 - 平均数的意义是什么">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag">Concept 1</span>
+          <h2>平均数是"匀一匀"</h2>
+        </div>
+        <p>平均数不是最大的数，也不是最小的数，而是把一组数<strong>移多补少</strong>之后，每堆都一样的那个数——它代表这组数据的<strong>总体水平</strong>。数学上，把这样"匀一匀"得到的代表值<strong>称为平均数</strong>（定义为：总数 ÷ 份数）。</p>
+        <div class="grid grid-2">
+          <div class="inner-card" style="border:1px solid var(--line-subtle);border-radius:12px;padding:14px">
+            <strong>生活例子</strong>
+            <p style="margin:8px 0">4 个小朋友各有 5、9、7、3 块糖。把多的补给少的，最后每人 <b>6 块</b>——这 6 就是平均数。</p>
+          </div>
+          <div class="inner-card" style="border:1px solid var(--line-subtle);border-radius:12px;padding:14px">
+            <strong>为什么有用</strong>
+            <p style="margin:8px 0">小明 3 局得 2 分、小红 5 局得 4 分，直接比总分不公平；看<b>平均每局得分</b>才公平：2÷3≈0.67，4÷5=0.8，小红更稳。</p>
+          </div>
+        </div>
+        <div class="hint-box">🌱 课标要点：理解平均数的意义，会用平均数解决问题；平均数是描述一组数据"集中趋势"的一把尺子。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 5: Concept 怎么算平均数 -->
+  <section class="slide-page" data-page-type="concept" data-page-index="5" data-tts="concept-calc" data-tsh="概念 - 怎么求平均数">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag">Concept 2</span>
+          <h2>怎么求平均数</h2>
+        </div>
+        <p>两种思路，结果一样：</p>
+        <div class="step-grid">
+          <div class="step-item"><span class="num">1</span><div><b>移多补少</b>：把大的补给小的，直到一样高（适合数少、接近时）。</div></div>
+          <div class="step-item"><span class="num">2</span><div><b>先合后分（最常用）</b>：先把所有数加起来（总数），再平均分成几份。</div></div>
+        </div>
+        <p class="formula">平均数 = 总数 ÷ 份数</p>
+        <p style="margin-top:6px">例：5、9、7、3 的平均数 = (5+9+7+3) ÷ 4 = 24 ÷ 4 = <b>6</b>。</p>
+        <div class="hint-box">⚠️ 易错 <span class="kp-tag">err-1</span>：除以的是<b>数据个数</b>（这里有 4 个数），不是除以数据里最大的数，也不是除以 2。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 6: Worked Example -->
+  <section class="slide-page" data-page-type="concept" data-page-index="6" data-tts="worked" data-tsh="习题讲解 - 完整解题步骤与易错提示">
+    <div class="slide-inner">
+      <div class="card card-accent">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="purple">Worked Example</span>
+          <h2>例题：四次测验的平均分</h2>
+        </div>
+        <p>小方四次测验得分：88、92、76、84，求平均分。<span class="kp-tag">ex-1</span></p>
+        <div class="step-grid">
+          <div class="step-item"><span class="num">1</span><div>求总数：88 + 92 + 76 + 84 = <b>340</b>。</div></div>
+          <div class="step-item"><span class="num">2</span><div>除以份数（4 次）：340 ÷ 4 = <b>85</b>。</div></div>
+          <div class="step-item"><span class="num">3</span><div>结论：平均分是 <b>85 分</b>。它比 92 低、比 76 高，正好代表整体水平。</div></div>
+        </div>
+        <div class="hint-box">🎯 关键：先"合"再"分"。平均数一定落在最大数和最小数<strong>之间</strong>，不会跑出去。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 7: Interactive 均分积木（fair share，纯本地 Canvas） -->
+  <section class="slide-page" data-page-type="interactive" data-page-index="7" data-tts="interactive" data-tsh="动手匀一匀 - 把高低不一的柱子变成一样高">
+    <div class="slide-inner">
+      <div class="card card-glow">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="success">Try it</span>
+          <h2>均分积木：平均数就是"匀一匀"</h2>
+        </div>
+        <p style="color:var(--muted);margin:0 0 10px">甲乙丙丁各有几块糖（柱子高度）。点 − / + 改变数量，或点"自动匀一匀"，看怎么把它们变得一样高——那个相同的高度，就是平均数。</p>
+        <canvas id="fairCanvas" width="640" height="240" aria-label="四根柱子表示四个人的糖果数，虚线为平均数" style="width:100%;max-width:640px;height:auto;border-radius:10px;background:#fffdf7;border:1px solid var(--line)"></canvas>
+        <div id="fairControls" class="flex-row" style="margin-top:12px;justify-content:center"></div>
+        <p id="fairMsg" class="result" style="margin-top:10px">目标：让四根柱子一样高。虚线是平均数 6。</p>
+        <button id="fairAuto" style="margin-top:10px;padding:8px 16px;border:1px solid var(--brand);border-radius:999px;background:#fff;color:#ff6b6b;cursor:pointer;font-size:14px">⚖️ 自动匀一匀</button>
+        <p style="font-size:12px;color:#8a7f74;margin-top:8px">💡 纯本地交互，无需联网。</p>
+      </div>
+    </div>
+    <script>
+    (function () {
+      var cv = document.getElementById('fairCanvas'); if (!cv || !cv.getContext) return;
+      var ctx = cv.getContext('2d');
+      var names = ['甲', '乙', '丙', '丁'];
+      var vals = [5, 9, 7, 3];
+      var UNIT = 16, PAD_B = 30, PAD_T = 34, COLW = 64, GAP = 22, MAXV = 12;
+      function mean() { var s = 0; vals.forEach(function (v) { s += v; }); return s / vals.length; }
+      function draw() {
+        var W = cv.width, H = cv.height, baseY = H - PAD_B;
+        ctx.clearRect(0, 0, W, H);
+        var m = mean();
+        var totalW = vals.length * COLW + (vals.length - 1) * GAP;
+        var x0 = (W - totalW) / 2;
+        var equal = vals.every(function (v) { return v === vals[0]; });
+        vals.forEach(function (v, i) {
+          var x = x0 + i * (COLW + GAP);
+          for (var k = 0; k < v; k++) {
+            var y = baseY - (k + 1) * UNIT;
+            ctx.fillStyle = equal ? '#2ecc71' : '#ff6b6b';
+            ctx.fillRect(x, y, COLW, UNIT - 2);
+            ctx.strokeStyle = 'rgba(255,255,255,0.5)'; ctx.lineWidth = 1; ctx.strokeRect(x, y, COLW, UNIT - 2);
+          }
+          ctx.fillStyle = '#5a5249'; ctx.font = '13px sans-serif'; ctx.textAlign = 'center';
+          ctx.fillText(names[i] + '：' + v, x + COLW / 2, baseY + 18);
+        });
+        var my = baseY - m * UNIT;
+        ctx.strokeStyle = '#4ecdc4'; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
+        ctx.beginPath(); ctx.moveTo(x0 - 12, my); ctx.lineTo(x0 + totalW + 12, my); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#2bb3a8'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'left';
+        ctx.fillText('平均数线 = ' + m.toFixed(2), x0 - 12, my - 6);
+      }
+      function buildControls() {
+        var box = document.getElementById('fairControls'); if (!box) return;
+        box.innerHTML = '';
+        vals.forEach(function (v, i) {
+          var c = document.createElement('div'); c.className = 'fair-control';
+          c.innerHTML = '<span class="fc-name">' + names[i] + '</span>' +
+            '<button class="fc-btn" data-act="dec" data-i="' + i + '">−</button>' +
+            '<span class="fc-val">' + v + '</span>' +
+            '<button class="fc-btn" data-act="inc" data-i="' + i + '">+</button>';
+          box.appendChild(c);
+        });
+        box.querySelectorAll('.fc-btn').forEach(function (b) {
+          b.addEventListener('click', function () {
+            var i = parseInt(b.getAttribute('data-i'), 10), act = b.getAttribute('data-act');
+            if (act === 'dec' && vals[i] > 0) vals[i]--;
+            if (act === 'inc' && vals[i] < MAXV) vals[i]++;
+            buildControls(); draw(); updateMsg();
+          });
+        });
+      }
+      function updateMsg() {
+        var msg = document.getElementById('fairMsg');
+        var equal = vals.every(function (v) { return v === vals[0]; });
+        if (equal) { msg.className = 'result'; msg.textContent = '🎉 你把它们匀成一样高了！这个相同的高度就是平均数 = ' + vals[0] + '——它让每组数量公平相等。'; }
+        else { msg.className = 'result warn'; msg.textContent = '继续调整，让四根柱子一样高（虚线是当前平均数 ' + mean().toFixed(2) + '）。'; }
+      }
+      document.getElementById('fairAuto').addEventListener('click', function step() {
+        var mi = 0, xi = 0;
+        vals.forEach(function (v, i) { if (v < vals[mi]) mi = i; if (v > vals[xi]) xi = i; });
+        if (vals[xi] - vals[mi] <= 1) { buildControls(); draw(); updateMsg(); return; }
+        vals[xi]--; vals[mi]++; buildControls(); draw(); updateMsg();
+        setTimeout(step, 200);
+      });
+      buildControls(); draw(); updateMsg();
+    })();
+    </script>
+  </section>
+
+  <!-- Page 8: Interactive 极端值（outlier，纯本地 Canvas） -->
+  <section class="slide-page" data-page-type="interactive" data-page-index="8" data-tts="explore" data-tsh="探究 - 一个极端值怎么把平均数拉跑">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="purple">Explore</span>
+          <h2>平均数怕"极端值"</h2>
+        </div>
+        <p style="color:var(--muted);margin:0 0 10px">5 个同学的分数是 70、75、80、85、90（平均 80）。拖动"转校生"的分数，看平均数怎么被一个人改变——这就是数据意识。</p>
+        <canvas id="outlierCanvas" width="640" height="240" aria-label="6 根柱子表示分数，虚线为平均数" style="width:100%;max-width:640px;height:auto;border-radius:10px;background:#fffdf7;border:1px solid var(--line)"></canvas>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap">
+          <label style="font-size:14px">转校生分数：<b id="outlierVal" style="color:var(--brand)">100</b></label>
+          <input id="outlierSlider" type="range" min="0" max="200" step="1" value="100" style="flex:1;min-width:160px;accent-color:var(--brand)">
+        </div>
+        <p id="outlierOut" class="result" style="margin-top:10px">6 个人的平均数 = 80.8</p>
+        <p style="font-size:13px;color:var(--muted);margin-top:8px">📊 生活里"平均工资""平均房价"常被一两个极高值拉高，所以看平均也要看分布（后面会学中位数）。</p>
+      </div>
+    </div>
+    <script>
+    (function () {
+      var cv = document.getElementById('outlierCanvas'); if (!cv || !cv.getContext) return;
+      var ctx = cv.getContext('2d');
+      var base = [70, 75, 80, 85, 90];
+      var slider = document.getElementById('outlierSlider');
+      var out = document.getElementById('outlierOut');
+      var valOut = document.getElementById('outlierVal');
+      function allVals() { return base.concat([parseInt(slider.value, 10)]); }
+      function mean() { var a = allVals(), s = 0; a.forEach(function (v) { s += v; }); return s / a.length; }
+      function draw() {
+        var a = allVals(), m = mean(), W = cv.width, H = cv.height;
+        var PAD_B = 30, PAD_T = 30, baseY = H - PAD_B;
+        var maxV = Math.max.apply(null, a.concat([m])) + 10, minV = 0;
+        var n = a.length, COLW = Math.min(70, (W - 40) / n - 10), GAP = 10;
+        ctx.clearRect(0, 0, W, H);
+        var totalW = n * COLW + (n - 1) * GAP, x0 = (W - totalW) / 2;
+        a.forEach(function (v, i) {
+          var x = x0 + i * (COLW + GAP);
+          var h = (v - minV) / (maxV - minV) * (baseY - PAD_T);
+          var isExtra = i === a.length - 1;
+          ctx.fillStyle = isExtra ? '#f4a261' : '#ff6b6b';
+          ctx.fillRect(x, baseY - h, COLW, h);
+          ctx.fillStyle = '#5a5249'; ctx.font = '12px sans-serif'; ctx.textAlign = 'center';
+          ctx.fillText(v, x + COLW / 2, baseY + 16);
+        });
+        var my = baseY - (m - minV) / (maxV - minV) * (baseY - PAD_T);
+        ctx.strokeStyle = '#4ecdc4'; ctx.lineWidth = 2; ctx.setLineDash([6, 4]);
+        ctx.beginPath(); ctx.moveTo(x0 - 12, my); ctx.lineTo(x0 + totalW + 12, my); ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = '#2bb3a8'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'left';
+        ctx.fillText('平均数 = ' + m.toFixed(1), x0 - 12, my - 6);
+        valOut.textContent = slider.value;
+        var note = m > 80 ? '（被转校生拉高了）' : (m < 80 ? '（被转校生拉低了）' : '（刚好 80）');
+        out.className = 'result';
+        out.textContent = n + ' 个人的平均数 = ' + m.toFixed(1) + note;
+      }
+      slider.addEventListener('input', draw);
+      draw();
+    })();
+    </script>
+  </section>
+
+  <!-- Page 9: Quiz 概念测试 -->
+  <section class="slide-page" data-page-type="quiz" data-page-index="9" data-tts="quiz-concept" data-tsh="概念测试 - 即时反馈巩固">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag">Check</span>
+          <h2>概念测试</h2>
+        </div>
+        <div class="quiz-block" data-correct="B">
+          <p><strong>1.</strong> 求 10、20、30 的平均数？</p>
+          <button class="choice" data-opt="A">A. 10</button>
+          <button class="choice" data-opt="B">B. 20</button>
+          <button class="choice" data-opt="C">C. 30</button>
+          <button class="choice" data-opt="D">D. 60</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="C">
+          <p><strong>2.</strong> 平均数一定落在哪里？</p>
+          <button class="choice" data-opt="A">A. 比最大的数还大</button>
+          <button class="choice" data-opt="B">B. 比最小的数还小</button>
+          <button class="choice" data-opt="C">C. 最大数和最小数之间</button>
+          <button class="choice" data-opt="D">D. 一定是整数</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="A">
+          <p><strong>3.</strong> 一组数的平均数是 15，其中一个数是 40（很高），说明这组数可能？</p>
+          <button class="choice" data-opt="A">A. 存在一个极端大的值把平均拉高了</button>
+          <button class="choice" data-opt="B">B. 所有数都接近 40</button>
+          <button class="choice" data-opt="C">C. 平均数一定等于 40</button>
+          <button class="choice" data-opt="D">D. 没法判断</button>
+          <p class="result" hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 10: Quiz 后测 -->
+  <section class="slide-page" data-page-type="quiz" data-page-index="10" data-tts="quiz-post" data-tsh="后测 - 含情境迁移题">
+    <div class="slide-inner">
+      <div class="card">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="warn">Posttest</span>
+          <h2>后测：情境迁移</h2>
+        </div>
+        <div class="quiz-block" data-correct="B">
+          <p><strong>1.</strong> 小明三次跳绳：120、135、145 下，平均每次约多少下？</p>
+          <button class="choice" data-opt="A">A. 120</button>
+          <button class="choice" data-opt="B">B. 133</button>
+          <button class="choice" data-opt="C">C. 145</button>
+          <button class="choice" data-opt="D">D. 400</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="C">
+          <p><strong>2.</strong> 小组 4 人身高 130、132、134、136 cm，又来了一位 190 cm 的篮球队员，平均身高会？</p>
+          <button class="choice" data-opt="A">A. 基本不变</button>
+          <button class="choice" data-opt="B">B. 变小</button>
+          <button class="choice" data-opt="C">C. 明显变大</button>
+          <button class="choice" data-opt="D">D. 变成 190</button>
+          <p class="result" hidden></p>
+        </div>
+        <hr style="border:none;border-top:1px dashed var(--line);margin:16px 0">
+        <div class="quiz-block" data-correct="A">
+          <p><strong>3.</strong> 比较两个班的成绩，只看平均分够吗？</p>
+          <button class="choice" data-opt="A">A. 不够，还要看分布和极端值</button>
+          <button class="choice" data-opt="B">B. 平均分高就一定都好</button>
+          <button class="choice" data-opt="C">C. 只看最高分</button>
+          <button class="choice" data-opt="D">D. 不需要比较</button>
+          <p class="result" hidden></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 11: Summary -->
+  <section class="slide-page" data-page-type="summary" data-page-index="11" data-tts="summary" data-tsh="总结 - 平均数的意义与算法">
+    <div class="slide-inner">
+      <div class="card card-glow">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="success">Summary</span>
+          <h2>一页记住</h2>
+        </div>
+        <div class="grid">
+          <div class="summary-item"><span class="num">①</span><div><b>意义</b>：平均数是"匀一匀"后每堆一样的代表值，表示总体水平。</div></div>
+          <div class="summary-item"><span class="num">②</span><div><b>算法</b>：平均数 = 总数 ÷ 份数（先合后分）。</div></div>
+          <div class="summary-item"><span class="num">③</span><div><b>范围</b>：平均数一定在最大数和最小数之间。</div></div>
+          <div class="summary-item"><span class="num">④</span><div><b>警惕</b>：一个极端值就能把平均数拉高或拉低，看平均也要看分布。</div></div>
+        </div>
+        <div class="hint-box">🌱 平均数是描述数据"集中趋势"的一把尺子；它让不好比的数据能放在同一把尺子上比较，但也会被个别极端值影响。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 12: 综合与迁移（口诀 + 五镜头 + 分层练习 + AI 学伴） -->
+  <section class="slide-page" data-page-type="summary" data-page-index="12" data-tts="apply" data-tsh="综合与迁移 - 口诀、五镜头、分层练习与 AI 学伴">
+    <div class="slide-inner">
+      <div class="card" style="background:var(--accent-soft);border:1px solid var(--accent)">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="success">记忆锚点</span>
+          <h2>🧠 口诀卡</h2>
+        </div>
+        <p style="margin:0">求平均，<b>先合后分</b>：总数除以个数；意义记心间——<b>匀一匀的代表值</b>。</p>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="purple">深层理解</span>
+          <h2>🔍 五镜头看本质</h2>
+        </div>
+        <ul style="margin:0;padding-left:20px;line-height:1.9">
+          <li><b>看见它</b>：平均数是一组数的"代表值"，不是某个具体的数据。</li>
+          <li><b>拆开它</b>：总数 ÷ 份数；或移多补少让每堆相等。</li>
+          <li><b>解释它</b>：它代表整体水平，落在最大最小之间。</li>
+          <li><b>比较它</b>：用平均数把不同样本放到同一把尺子比。</li>
+          <li><b>迁移它</b>：平均分、平均身高、平均温度、平均得分都用它。</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="warn">三段式练习</span>
+          <h2>⭐ 分层练习</h2>
+        </div>
+        <ul style="margin:0;padding-left:20px;line-height:1.9">
+          <li>⭐ <b>基础巩固</b>：求 4、6、8、10 的平均数。</li>
+          <li>⭐⭐ <b>能力应用</b>：5 天零花钱 10、15、20、5、10 元，平均每天多少？</li>
+          <li>⭐⭐⭐ <b>迁移挑战</b>：为什么"平均工资"有时会让人觉得"被平均"？举一个生活中的例子。</li>
+        </ul>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="section-header">
+          <span class="phase-tag">AI 学伴</span>
+          <h2>🤖 随时问学伴</h2>
+        </div>
+        <p style="color:var(--muted);margin:0 0 12px">卡住的地方，点卡片向 AI 学伴提问（如"为什么极端值会影响平均数？"）。</p>
+        <div data-teachany-tutor-card></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 13: Knowledge Graph -->
+  <section class="slide-page" data-page-type="summary" data-page-index="13" data-tts="knowledge-graph" data-tsh="知识图谱 - 查看前置、后续与同域知识">
+    <div class="slide-inner">
+      <div class="card card-glow">
+        <div class="section-header">
+          <span class="phase-tag" data-variant="purple">Knowledge Graph</span>
+          <h2>知识图谱</h2>
+        </div>
+        <p style="color:var(--muted);margin:0 0 16px">本节点的前置、后续和同域知识。</p>
+        <div data-teachany-kg="math-e-average-concept">
+          <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div id="audio-config" data-teachany-audio hidden>
+  <script type="application/json" data-teachany-audio-playlist>
+[
+  {"section":"hero","src":"tts/01-cover.mp3","title":"封面"},
+  {"section":"problem-anchor","src":"tts/02-anchor.mp3","title":"问题锚点"},
+  {"section":"objectives","src":"tts/03-objectives.mp3","title":"学习目标"},
+  {"section":"concept-meaning","src":"tts/04-meaning.mp3","title":"平均数的意义"},
+  {"section":"concept-calc","src":"tts/05-calc.mp3","title":"怎么求平均数"},
+  {"section":"worked","src":"tts/06-worked.mp3","title":"例题讲解"},
+  {"section":"interactive","src":"tts/07-interactive.mp3","title":"动手匀一匀"},
+  {"section":"summary","src":"tts/08-summary.mp3","title":"总结"}
+]
+  </script>
+</div>
+
+<nav class="slide-sidenav" id="slide-sidenav" aria-label="页面导航"></nav>
+
+<button class="play-mode-fab" id="play-mode-fab" aria-label="切换播放模式" title="切换播放模式">
+  <svg id="fab-icon-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+  <svg id="fab-icon-browse" viewBox="0 0 24 24" style="display:none"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+</button>
+
+<div class="slide-toolbar" id="slide-toolbar">
+  <button class="toolbar-btn" id="tb-prev" aria-label="上一页" title="上一页"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+  <div class="toolbar-progress" id="tb-progress" title="进度"><div class="toolbar-progress-fill" id="tb-progress-fill"></div></div>
+  <span class="toolbar-page-info" id="tb-page-info">1 / 14</span>
+  <button class="toolbar-btn" id="tb-next" aria-label="下一页" title="下一页"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+  <button class="toolbar-btn" id="tb-autoplay" aria-label="自动播放" title="自动播放"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg></button>
+  <button class="toolbar-btn" id="tb-fullscreen" aria-label="全屏" title="全屏"><svg viewBox="0 0 24 24"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg></button>
+</div>
+
+<script>
+(function() {
+  'use strict';
+  var container = document.getElementById('slide-container');
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.slide-page'));
+  var totalPages = pages.length;
+  var currentPage = 0, isPlayMode = false, isAutoPlay = false, autoPlayTimer = null;
+  var progressBar = document.getElementById('slide-progress-bar');
+  var sidenav = document.getElementById('slide-sidenav');
+  var fab = document.getElementById('play-mode-fab');
+  var fabIconPlay = document.getElementById('fab-icon-play');
+  var fabIconBrowse = document.getElementById('fab-icon-browse');
+  var toolbar = document.getElementById('slide-toolbar');
+  var tbPrev = document.getElementById('tb-prev'), tbNext = document.getElementById('tb-next');
+  var tbPageInfo = document.getElementById('tb-page-info');
+  var tbProgressFill = document.getElementById('tb-progress-fill');
+  var tbProgress = document.getElementById('tb-progress');
+  var tbAutoplay = document.getElementById('tb-autoplay');
+  var tbFullscreen = document.getElementById('tb-fullscreen');
+
+  function buildSidenav() {
+    sidenav.innerHTML = '';
+    var counter = document.createElement('div'); counter.className = 'sidenav-counter'; counter.id = 'sidenav-counter';
+    counter.textContent = '1/' + totalPages; sidenav.appendChild(counter);
+    pages.forEach(function (page, i) {
+      var dot = document.createElement('button');
+      dot.className = 'sidenav-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('data-tooltip', (page.dataset.tsh || ('第' + (i + 1) + '页')).split(' - ')[0]);
+      dot.setAttribute('aria-label', '跳转到第' + (i + 1) + '页');
+      dot.addEventListener('click', function () { goToPage(i); });
+      sidenav.appendChild(dot);
+    });
+  }
+  function updateUI() {
+    var progress = totalPages > 1 ? (currentPage / (totalPages - 1)) * 100 : 100;
+    progressBar.style.width = progress + '%'; tbProgressFill.style.width = progress + '%';
+    tbPageInfo.textContent = (currentPage + 1) + ' / ' + totalPages;
+    sidenav.querySelectorAll('.sidenav-dot').forEach(function (d, i) { d.classList.toggle('active', i === currentPage); });
+    var c = document.getElementById('sidenav-counter'); if (c) c.textContent = (currentPage + 1) + '/' + totalPages;
+    tbPrev.style.opacity = currentPage === 0 ? '0.3' : '1';
+    tbNext.style.opacity = currentPage === totalPages - 1 ? '0.3' : '1';
+  }
+  function goToPage(index) {
+    if (index < 0 || index >= totalPages) return; currentPage = index;
+    if (isPlayMode) pages[currentPage].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else container.scrollTo({ top: pages[currentPage].offsetTop, behavior: 'smooth' });
+    updateUI(); dispatchPageAudio();
+  }
+  function nextPage() { if (currentPage < totalPages - 1) goToPage(currentPage + 1); }
+  function prevPage() { if (currentPage > 0) goToPage(currentPage - 1); }
+  var scrollTimeout;
+  container.addEventListener('scroll', function () {
+    if (isPlayMode) return; clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(function () {
+      var st = container.scrollTop, vh = container.clientHeight, closest = 0, min = Infinity;
+      pages.forEach(function (p, i) { var d = Math.abs(p.offsetTop - st); if (d < min) { min = d; closest = i; } });
+      if (closest !== currentPage) { currentPage = closest; updateUI(); }
+    }, 100);
+  });
+  function togglePlayMode() {
+    isPlayMode = !isPlayMode; document.body.classList.toggle('play-mode', isPlayMode);
+    document.body.classList.toggle('toolbar-visible', isPlayMode);
+    fabIconPlay.style.display = isPlayMode ? 'none' : 'block';
+    fabIconBrowse.style.display = isPlayMode ? 'block' : 'none';
+    if (isPlayMode) goToPage(currentPage);
+  }
+  fab.addEventListener('click', togglePlayMode);
+  tbPrev.addEventListener('click', prevPage); tbNext.addEventListener('click', nextPage);
+  tbProgress.addEventListener('click', function (e) { var r = tbProgress.getBoundingClientRect(); goToPage(Math.round(((e.clientX - r.left) / r.width) * (totalPages - 1))); });
+  tbAutoplay.addEventListener('click', function () { isAutoPlay = !isAutoPlay; tbAutoplay.classList.toggle('active', isAutoPlay); if (isAutoPlay) startAuto(); else stopAuto(); });
+  function startAuto() { stopAuto(); autoPlayTimer = setInterval(function () { if (currentPage < totalPages - 1) nextPage(); else { stopAuto(); isAutoPlay = false; tbAutoplay.classList.remove('active'); } }, 8000); }
+  function stopAuto() { if (autoPlayTimer) { clearInterval(autoPlayTimer); autoPlayTimer = null; } }
+  tbFullscreen.addEventListener('click', function () { if (!document.fullscreenElement) document.documentElement.requestFullscreen && document.documentElement.requestFullscreen(); else document.exitFullscreen && document.exitFullscreen(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); nextPage(); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); prevPage(); }
+    else if ((e.key === 'f' || e.key === 'F') && !e.ctrlKey && !e.metaKey) togglePlayMode();
+    else if (e.key === 'Escape' && isPlayMode) togglePlayMode();
+  });
+  function dispatchPageAudio() {
+    var ttsId = pages[currentPage].dataset.tts;
+    if (ttsId && window.__TEACHANY_AUDIO_PLAYER__) window.__TEACHANY_AUDIO_PLAYER__.playSection(ttsId);
+  }
+  document.addEventListener('teachany-audio-ended', function () { if (isAutoPlay && currentPage < totalPages - 1) setTimeout(nextPage, 1000); });
+
+  // Problem anchor
+  window.__TEACHANY_LEARNER_QUESTION__ = '';
+  window.__TEACHANY_TUTOR_CONFIG__ = {
+    courseId: 'math-e-average-concept', courseTitle: '平均数概念',
+    subject: 'math', grade: '4', nodeId: 'math-e-average-concept', lessonType: 'new-concept',
+    getLearnerQuestion: function () { return window.__TEACHANY_LEARNER_QUESTION__ || ''; },
+    getContext: function () { return (pages[currentPage] || document.body).innerText.slice(0, 3000); }
+  };
+  function setLearnerQuestion(q) {
+    window.__TEACHANY_LEARNER_QUESTION__ = q || '';
+    var fb = document.getElementById('anchor-feedback');
+    if (fb) fb.textContent = q ? ('你的问题：' + q) : '选择或输入后，本课会围绕你的问题展开。';
+  }
+  document.querySelectorAll('[data-anchor-choice]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('[data-anchor-choice]').forEach(function (x) { x.classList.remove('selected'); });
+      b.classList.add('selected'); setLearnerQuestion(b.getAttribute('data-anchor-choice') || b.textContent.trim());
+    });
+  });
+  document.getElementById('learner-question-input') && document.getElementById('learner-question-input').addEventListener('input', function (e) { setLearnerQuestion(e.target.value.trim()); });
+
+  // Quiz handler
+  document.querySelectorAll('.quiz-block').forEach(function (block) {
+    var correct = block.getAttribute('data-correct');
+    var fb = block.querySelector('.result');
+    block.querySelectorAll('.choice').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var picked = btn.getAttribute('data-opt');
+        block.querySelectorAll('.choice').forEach(function (x) { x.classList.remove('correct', 'wrong'); });
+        if (picked === correct) {
+          btn.classList.add('correct');
+          if (fb) { fb.hidden = false; fb.className = 'result'; fb.textContent = '✅ 答对了！'; }
+        } else {
+          btn.classList.add('wrong');
+          var right = block.querySelector('[data-opt="' + correct + '"]'); if (right) right.classList.add('correct');
+          if (fb) { fb.hidden = false; fb.className = 'result error'; fb.textContent = '❌ 再想想，正确答案是 ' + correct + '。'; }
+        }
+      });
+    });
+  });
+
+  buildSidenav(); updateUI();
+  document.body.classList.add('toolbar-visible');
+  setTimeout(function () { if (!isPlayMode) document.body.classList.remove('toolbar-visible'); }, 3000);
+})();
+</script>
+
+<!-- 标准模块脚本（CDN；含 AI 学伴 / 知识图谱 / 导师卡片，不含品牌顶栏） -->
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tts-narrator.js" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-section-hints.js" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-knowledge-graph.js" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tutor-card.js" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/ai-tutor.js" defer></script>
+<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-audio-player.js?v=paged-20260521" defer></script>
+</body>
+</html>
