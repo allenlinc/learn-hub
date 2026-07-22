@@ -28,7 +28,6 @@
 <!-- 标准模块 + 音频播放器（CDN 绝对路径，便于本地预览与发布后加载；按用户要求不含 AI 学伴 / 品牌顶栏） -->
 <link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tts-narrator.css">
 <link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-section-hints.css">
-<link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-knowledge-graph.css">
 <link rel="stylesheet" href="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-audio-player.css">
 
 <style>
@@ -715,22 +714,6 @@ body.play-mode .slide-sidenav, body.toolbar-visible .slide-sidenav { opacity: 1;
     </div>
   </section>
 
-  <!-- Page 13: Knowledge Graph -->
-  <section class="slide-page" data-page-type="summary" data-page-index="13" data-tts="knowledge-graph" data-tsh="知识图谱 - 查看前置、后续与同域知识">
-    <div class="slide-inner">
-      <div class="card card-glow">
-        <div class="section-header">
-          <span class="phase-tag" data-variant="purple">Knowledge Graph</span>
-          <h2>知识图谱</h2>
-        </div>
-        <p style="color:var(--muted);margin:0 0 16px">本节点的前置、后续和同域知识。</p>
-        <div data-teachany-kg="math-e-fraction-decimal-percent">
-          <canvas class="tkg-fallback-canvas" width="720" height="120" aria-label="知识图谱互动画布" style="display:block;width:100%;max-height:140px;border-radius:12px;"></canvas>
-        </div>
-      </div>
-    </div>
-  </section>
-
 </div>
 
 <div id="audio-config" data-teachany-audio hidden>
@@ -978,7 +961,6 @@ body.play-mode .slide-sidenav, body.toolbar-visible .slide-sidenav { opacity: 1;
 <!-- 标准模块脚本（CDN，启用 mp3 旁白，不含 data-tts-disabled；按用户要求不含 AI 学伴 / 品牌顶栏） -->
 <script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-tts-narrator.js" defer></script>
 <script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-section-hints.js" defer></script>
-<script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-knowledge-graph.js" defer></script>
 <script src="https://weponusa.github.io/teachany-courseware/assets/scripts/teachany-audio-player.js?v=paged-20260521" defer></script>
 </body>
 </html>
