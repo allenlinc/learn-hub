@@ -189,6 +189,8 @@ body.teachany-elementary .slide-page[data-page-type="summary"] {
 .choice.selected { border-color: #ff6b6b; background: rgba(255,107,107,0.16); box-shadow: 0 0 0 3px rgba(255,107,107,0.12); }
 .choice.correct { border-color: var(--ok); background: rgba(46,204,113,0.14); }
 .choice.wrong { border-color: var(--danger); background: rgba(239,68,68,0.10); }
+/* 测验选项之间留出竖向间距，避免按钮紧贴在一起 */
+.quiz-block .choice + .choice { margin-top: 12px; }
 
 input, textarea {
   width: 100%; border-radius: 12px; border: 1px solid var(--line); background: #fffdf7; color: var(--text);
